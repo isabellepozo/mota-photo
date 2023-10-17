@@ -33,3 +33,68 @@ body {
     font-family: 'Space Mono', sans-serif; 
     margin: 0, auto;
 }
+
+.titre-page {
+    display: none;
+    }
+
+main, footer > p, body > h1, .menu {
+width: 1440px;
+margin-left: auto;
+margin-right: auto;
+}
+
+main figure {
+    margin-left: 0px;
+    margin-right: 0;
+}
+
+footer, div[class^="menu"] {
+    background-color: #eee;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+article {
+    width: 300px;
+    margin-top: 30px;
+}
+
+#accueil {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+footer {
+    margin-top: 30px;
+}
+
+article img:hover {
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+/* HEADER */
+.nav-header h1 {
+    display: none;
+}
+
+.menu-item {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.menu a, article a {
+    text-decoration: none;
+    color: #333;
+}
+
+.menu a:hover, article a:hover {
+    color: #313144;
+}
+
+ul.menu {
+    padding-left: 0;
+    list-style-type: none;
+}

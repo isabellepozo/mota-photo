@@ -4,7 +4,12 @@
         <?php while (have_posts()) : the_post() ?>
 
         <article>
-            <h2><?php the_title() ?></h2>
+            <a href="<?php the_permalink() ?>">
+                <?php the_post_thumbnail("medium") ?>
+                 <!-- <?php the_post_thumbnail(array(258, 145)) ?> -->
+                <h2 class="titre-page"><?php the_title() ?></h2>
+            </a>
+
             <?php the_excerpt() ?>
         </article>
 

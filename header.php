@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title><?php bloginfo("name") ?> - <?php bloginfo("description") ?></title>
-    <link rel="stylesheet" href="<?php echo get_stylesheet_uri() ?>">
+    <?php wp_head(); ?>
 </head>
 <body>
-    <h1><?php bloginfo("name") ?></h1>
+<header class="header">   
+    <div class="nav-header">
+        <img src="<?php echo esc_url(bloginfo('template_directory') . '/assets/images/logo.svg'); ?>" alt="<?php bloginfo('name'); ?>">
+        <?php wp_nav_menu(array( 'theme_location' => 'menu-header' )) ?>
+         <h1><?php bloginfo("name") ?></h1>
+    </div>
+</header>
