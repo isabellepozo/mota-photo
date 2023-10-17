@@ -1,0 +1,35 @@
+/*
+Theme Name: Mota Photo
+Theme URI: http://localhost/motaphoto/
+Author: Isabelle Pozo
+Author URI: http://localhost/motaphoto/
+Description: Thème Wordpress pour la photographe Mota Nathalie
+Version: 1.0
+*/
+
+/* Police SpaceMono */
+@font-face {
+    font-family: 'Space Mono';
+    src:  url('assets/fonts/SpaceMono-Bold.ttf') format('truetype'),
+        url('assets/fonts/SpaceMono-BoldItalic.ttf') format('truetype'),
+        url('assets/fonts/SpaceMono-Italic.ttf') format('truetype'),
+        url('assets/fonts/SpaceMono-Regular.ttf') format('truetype');
+}  
+
+/* Police Poppins */
+@font-face {
+    font-family: 'Poppins';
+    src:  url('assets/fonts/Poppins-Light.ttf') format('truetype');
+}  
+
+/* Style thème */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: #f1f1f1; 
+    color: #23282d; 
+    font-family: 'Space Mono', sans-serif; 
+    margin: 0, auto;
+}
