@@ -7,6 +7,7 @@ Description: Thème Wordpress pour la photographe Mota Nathalie
 Version: 1.0
 */
 
+/**************** POLICES ***************/
 /* Police SpaceMono */
 @font-face {
     font-family: 'Space Mono';
@@ -22,16 +23,39 @@ Version: 1.0
     src:  url('assets/fonts/Poppins-Light.ttf') format('truetype');
 }  
 
-/* Style thème */
+/*************** STYLES THEME ***************/
 * {
     box-sizing: border-box;
 }
 
 body {
+    width: 100%;
+    max-width: 100%;
     background: #f1f1f1; 
     color: #23282d; 
-    font-family: 'Space Mono', sans-serif; 
-    margin: 0, auto;
+    font-family: 'Space Mono', sans-serif;     
+}
+
+/* Styles pour une largeur de 1440px */
+@media screen and (min-width: 1440px) {
+    body {
+        max-width: 1440px;
+        margin: 0 auto; /* Centre le contenu sur l'écran */
+    }
+}
+
+/* footer, div[class^="menu"] {
+    background-color: #eee;
+}  */
+
+.menu-item {
+    display: inline-block;   
+}
+
+p {
+    font-family: 'Poppins', sans-serif; 
+    font-size: 14px; 
+    line-height: 21px; 
 }
 
 .titre-page {
@@ -39,7 +63,6 @@ body {
     }
 
 main, footer > p, body > h1, .menu {
-width: 1440px;
 margin-left: auto;
 margin-right: auto;
 }
@@ -47,12 +70,6 @@ margin-right: auto;
 main figure {
     margin-left: 0px;
     margin-right: 0;
-}
-
-footer, div[class^="menu"] {
-    background-color: #eee;
-    padding-top: 10px;
-    padding-bottom: 10px;
 }
 
 article {
@@ -66,23 +83,30 @@ article {
     justify-content: space-between;
 }
 
-footer {
-    margin-top: 30px;
-}
-
 article img:hover {
     opacity: 0.8;
     transition: opacity 0.3s ease;
 }
 
-/* HEADER */
+/**************** HEADER ***************/
+.header {
+    background-color: #eee;
+    margin-top: 0;
+    height: 80px;   
+}
+
+.nav-header {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+}
+
 .nav-header h1 {
     display: none;
 }
 
-.menu-item {
-    display: inline-block;
-    margin-right: 20px;
+header .menu-item {
+margin-right: 45px;
 }
 
 .menu a, article a {
@@ -95,6 +119,42 @@ article img:hover {
 }
 
 ul.menu {
+    display: flex;
+    justify-content: center;
     padding-left: 0;
     list-style-type: none;
+}
+
+.menu-menu-principal-container {
+    margin-right: 70px;
+} 
+
+.nav-header img {
+    width: 216px;
+    margin-left: 110px;
+}
+
+/*************** FOOTER ****************/
+ul #menu-menu-footer.menu {
+    display: flex;
+    justify-content: center;  
+}
+
+/* Ajouter de l'espace entre les liens du menu footer */
+.footer .menu-item {
+    margin-right: 100px; 
+}
+
+footer {
+    margin-top: 30px;
+    margin-bottom: 20px; 
+}
+
+/* Ajouter une ligne continue au-dessus du footer */
+footer::before {
+    content: "";
+    display: block;
+    border-top: 1px solid #000000; /* Couleur et style de la ligne */
+    margin-top: 30px; /* Espace entre la ligne et le contenu du footer */
+    margin-bottom: -5px;
 }
