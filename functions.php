@@ -1,4 +1,5 @@
 <?php
+
 // Gestion des images mises en avant
 add_theme_support("post-thumbnails");
 // set_post_thumbnail_size( 258, 145, true );
@@ -10,11 +11,17 @@ function motaphoto_register_menus() {
         'menu-footer' => 'Menu Footer',
     ));
 }
+add_action('init', 'motaphoto_register_menus');
 
- add_action('init', 'motaphoto_register_menus');
+// Enregistrer et charger les scripts et les styles
+function theme_enqueue_scripts() {
+    // Charger le fichier scripts.js
+    wp_enqueue_script('custom-scripts', get_template_directory_uri() . '/assets/js/scripts.js', array(), null, true);
 
-// Lier la feuille de style
-function ajouter_scripts() {
-	wp_enqueue_style( 'style', get_stylesheet_uri() );
+    // Charger la feuille de style
+    wp_enqueue_style('style', get_stylesheet_uri());
 }
-add_action( 'wp_enqueue_scripts', 'ajouter_scripts' );
+add_action('wp_enqueue_scripts', 'theme_enqueue_scripts');
+
+
+
