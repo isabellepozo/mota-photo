@@ -250,7 +250,14 @@ form.wpcf7-form.init label {
     font-weight: bold;
 }
 
+form.wpcf7-form.init input[type="submit"] {
+    background-color: #d8d8d8;
+    border: none;
+}
 
+form.wpcf7-form.init input[type="submit"]:hover {
+    cursor: pointer; 
+}
 
 
 
