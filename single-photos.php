@@ -1,30 +1,51 @@
 <?php get_header(); ?>
 
-<div class="photo-details">
+<div class="photo-contenu">
     <?php if (have_posts()) : ?>
         <?php while (have_posts()) : the_post(); ?>
-            <article class="photo-details-content">
-                <!-- Div contenant le titre et les informations de la photo -->
-                <div class="photo-info">
-                    <h1><?php the_title(); ?></h1>
-                    <p><?php echo get_field_object('reference')['label']; ?> :
-                        <span class="ref-contact"><?php the_field('reference'); ?></span>
-                    </p>
-                    <p><?php echo get_field_object('categorie')['label']; ?> :
-                        <?php the_field('categorie'); ?>
-                    </p>
-                    <p><?php echo get_field_object('format')['label']; ?> :
-                        <?php the_field('format'); ?>
-                    </p>
-                    <p><?php echo get_field_object('type')['label']; ?> :
-                        <?php the_field('type'); ?>
-                    </p>
-                    <p><?php echo get_field_object('annee')['label']; ?> :
-                        <?php the_field('annee'); ?>
-                    </p>
+            <article class="photo-contenu-infos">
+                <!-- Titre et informations sur la photo -->
+                <div class="photo-infos">
+                    <h2><?php the_title(); ?></h2>
+
+                    <?php 
+                    $reference = get_field('reference');
+                    if ($reference) :
+                    ?>
+                    <p>Référence : <?php echo $reference; ?></p>
+                    <?php endif; ?>
+
+                    <?php 
+                    $categorie = get_field('categorie');
+                    if ($categorie) :
+                    ?>
+                    <p>Catégorie : <?php echo $categorie; ?></p>
+                    <?php endif; ?>
+
+                    <?php 
+                    $format = get_field('format');
+                    if ($format) :
+                    ?>
+                    <p>Format : <?php echo $format; ?></p>
+                    <?php endif; ?>
+
+                    <?php 
+                    $type = get_field('type');
+                    if ($type) :
+                    ?>
+                    <p>Type : <?php echo $type; ?></p>
+                    <?php endif; ?>
+
+                    <?php 
+                    $annee = get_field('annee');
+                    if ($annee) :
+                    ?>
+                    <p>Année : <?php echo $annee; ?></p>
+                    <?php endif; ?>
                 </div>
-                <!-- Div contenant la photo -->
-                <div class="photo-image">
+
+                <!-- Photo -->
+                <div class="image-photo">
                     <?php the_post_thumbnail(); ?>
                 </div>
             </article>
@@ -33,6 +54,8 @@
 </div>
 
 <?php get_footer(); ?>
+
+
 
 
 

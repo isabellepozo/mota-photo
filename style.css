@@ -66,7 +66,6 @@ main figure {
 }
 
 article {
-  width: 300px;
   margin-top: 30px;
 }
 
@@ -245,4 +244,36 @@ form.wpcf7-form.init input[type=submit] {
 
 form.wpcf7-form.init input[type=submit]:hover {
   cursor: pointer;
+}
+
+/*************** STYLE SINGLE PHOTOS ***************/
+.photo-contenu {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px; /* Ajustez cette valeur en fonction de la largeur maximale souhaitée */
+}
+
+.photo-contenu-infos {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: auto;
+}
+
+.photo-infos {
+  display: flex;
+  width: 48%;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  font-family: "Space Mono";
+  border-bottom: solid 1px;
+}
+
+.image-photo {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  margin-top: 20px;
 }/*# sourceMappingURL=style.css.map */
