@@ -1,4 +1,5 @@
-/*
+@charset "UTF-8";
+/*!
 Theme Name: Mota Photo
 Theme URI: http://localhost/motaphoto/
 Author: Isabelle Pozo
@@ -6,259 +7,242 @@ Author URI: http://localhost/motaphoto/
 Description: Thème Wordpress pour la photographe Mota Nathalie
 Version: 1.0
 */
-
 /**************** POLICES ***************/
 /* Police SpaceMono */
 @font-face {
-    font-family: 'Space Mono';
-    src:  url('assets/fonts/SpaceMono-Bold.ttf') format('truetype'),
-        url('assets/fonts/SpaceMono-BoldItalic.ttf') format('truetype'),
-        url('assets/fonts/SpaceMono-Italic.ttf') format('truetype'),
-        url('assets/fonts/SpaceMono-Regular.ttf') format('truetype');
-}  
-
+  font-family: "Space Mono";
+  src: url("assets/fonts/SpaceMono-Bold.ttf") format("truetype"), url("assets/fonts/SpaceMono-BoldItalic.ttf") format("truetype"), url("assets/fonts/SpaceMono-Italic.ttf") format("truetype"), url("assets/fonts/SpaceMono-Regular.ttf") format("truetype");
+}
 /* Police Poppins */
 @font-face {
-    font-family: 'Poppins';
-    src:  url('assets/fonts/Poppins-Light.ttf') format('truetype');
-}  
-
+  font-family: "Poppins";
+  src: url("assets/fonts/Poppins-Light.ttf") format("truetype");
+}
 /*************** STYLES THEME ***************/
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    width: 100%;
-    max-width: 100%;
-    background: #ffffff; 
-    color: #23282d; 
-    font-family: 'Space Mono', sans-serif;     
+  width: 100%;
+  max-width: 100%;
+  background: #ffffff;
+  color: #23282d;
+  font-family: "Space Mono", sans-serif;
 }
 
 /* Styles pour une largeur de 1440px */
 @media screen and (min-width: 1440px) {
-    body {
-        max-width: 1440px;
-        margin: 0 auto; /* Centre le contenu sur l'écran */
-    }
+  body {
+    max-width: 1440px;
+    margin: 0 auto; /* Centre le contenu sur l'écran */
+  }
 }
-
 /* footer, div[class^="menu"] {
     background-color: #eee;
 }  */
-
 .menu-item {
-    display: inline-block;   
+  display: inline-block;
 }
 
 p {
-    font-family: 'Poppins', sans-serif; 
-    font-size: 14px; 
-    line-height: 21px; 
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  line-height: 21px;
 }
 
 .titre-page {
-    display: none;
-    }
+  display: none;
+}
 
 main, footer > p, body > h1, .menu {
-margin-left: auto;
-margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 main figure {
-    margin-left: 0px;
-    margin-right: 0;
+  margin-left: 0px;
+  margin-right: 0;
 }
 
 article {
-    width: 300px;
-    margin-top: 30px;
+  width: 300px;
+  margin-top: 30px;
 }
 
 #accueil {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 article img:hover {
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
 }
 
 /**************** HEADER ***************/
 .header {
-    background-color: #ffffff;
-    margin-top: 0;
-    height: 80px;
-    box-shadow: 0px 4px 14px 10px rgba(0, 0, 0, 0.03);  
+  background-color: #ffffff;
+  margin-top: 0;
+  height: 80px;
+  box-shadow: 0px 4px 14px 10px rgba(0, 0, 0, 0.03);
 }
 
 .nav-header {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
 }
 
 .nav-header h1 {
-    display: none;
+  display: none;
 }
 
 header .menu-item {
-margin-right: 45px;
+  margin-right: 45px;
 }
 
 .menu a, article a {
-    text-decoration: none;
-    color: #333;
+  text-decoration: none;
+  color: #333;
 }
 
 .menu a:hover, article a:hover {
-    color: #313144;
+  color: #313144;
 }
 
 ul.menu {
-    display: flex;
-    justify-content: center;
-    padding-left: 0;
-    list-style-type: none;
+  display: flex;
+  justify-content: center;
+  padding-left: 0;
+  list-style-type: none;
 }
 
 .menu-menu-principal-container {
-    margin-right: 70px;
-} 
-
-.nav-header img {
-    width: 216px;
-    margin-left: 110px;
+  margin-right: 70px;
 }
 
-  
-
+.nav-header img {
+  width: 216px;
+  margin-left: 110px;
+}
 
 /*************** FOOTER ****************/
 ul #menu-menu-footer.menu {
-    display: flex;
-    justify-content: center;  
+  display: flex;
+  justify-content: center;
 }
 
 /* Ajouter de l'espace entre les liens du menu footer */
 .footer .menu-item {
-    margin-right: 100px; 
+  margin-right: 100px;
 }
 
 footer {
-    margin-top: 30px;
-    margin-bottom: 20px;
-    background-color: #ffffff; 
+  margin-top: 30px;
+  margin-bottom: 20px;
+  background-color: #ffffff;
 }
 
 /* Ajouter une ligne continue au-dessus du footer */
 footer::before {
-    content: "";
-    display: block;
-    border-top: 1px solid #000000; /* Couleur et style de la ligne */
-    margin-top: 30px; /* Espace entre la ligne et le contenu du footer */
-    margin-bottom: -5px;
+  content: "";
+  display: block;
+  border-top: 1px solid #000000; /* Couleur et style de la ligne */
+  margin-top: 30px; /* Espace entre la ligne et le contenu du footer */
+  margin-bottom: -5px;
 }
 
 /*************** La modale ****************/
 @keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    50% {
-        opacity: 0.5;
-    }
-    100% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
 }
-
 #contact-modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow-y: auto;
-    background-color: rgba(0, 0, 0, 0.4);
-    animation: fadeIn 2s; /* Animation de fondu */
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  animation: fadeIn 2s; /* Animation de fondu */
 }
 
 #contact-modal form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fefefe;
-    padding: 100px;
-    padding-bottom: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    max-width: 500px;
-    width: 100%;
-    height: 90%;
-    overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fefefe;
+  padding: 100px;
+  padding-bottom: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
+  width: 100%;
+  height: 90%;
+  overflow-y: auto;
 }
 
 form.wpcf7-form.init {
-    position: relative;
-    background-color: #fefefe;
-    border: 5px solid black;
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  position: relative;
+  background-color: #fefefe;
+  border: 5px solid black;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Ajouter une image en haut du formulaire */
 .wpcf7-form.init {
-    background: url('assets/images/contact-header.png') no-repeat center top;
-    background-size: contain; 
+  background: url("assets/images/contact-header.png") no-repeat center top;
+  background-size: contain;
 }
 
 form.wpcf7-form input {
-    border-radius: 6px; 
-    width: 263px; 
-    height: 63px;
+  border-radius: 6px;
+  width: 263px;
+  height: 63px;
 }
-
 
 form.wpcf7-form textarea {
-    border-radius: 6px; 
-    width: 263px; 
+  border-radius: 6px;
+  width: 263px;
 }
 
-form.wpcf7-form input[type="submit"] {
-    border-radius: 0; /* Remettre à zéro les bords arrondis pour le bouton "Envoyer" */
+form.wpcf7-form input[type=submit] {
+  border-radius: 0; /* Remettre à zéro les bords arrondis pour le bouton "Envoyer" */
 }
 
 form.wpcf7-form.init textarea {
-    height: 210px;
+  height: 210px;
 }
 
 form.wpcf7-form.init label {
-    color: #313144; 
-    font-weight: bold;
+  color: #313144;
+  font-weight: bold;
 }
 
-form.wpcf7-form.init input[type="submit"] {
-    background-color: #d8d8d8;
-    border: none;
+form.wpcf7-form.init input[type=submit] {
+  background-color: #d8d8d8;
+  border: none;
 }
 
-form.wpcf7-form.init input[type="submit"]:hover {
-    cursor: pointer; 
-}
-
-
-
-
+form.wpcf7-form.init input[type=submit]:hover {
+  cursor: pointer;
+}/*# sourceMappingURL=style.css.map */

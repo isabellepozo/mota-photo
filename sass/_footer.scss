@@ -1,0 +1,25 @@
+/*************** FOOTER ****************/
+ul #menu-menu-footer.menu {
+    display: flex;
+    justify-content: center;  
+}
+
+/* Ajouter de l'espace entre les liens du menu footer */
+.footer .menu-item {
+    margin-right: 100px; 
+}
+
+footer {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    background-color: #ffffff; 
+}
+
+/* Ajouter une ligne continue au-dessus du footer */
+footer::before {
+    content: "";
+    display: block;
+    border-top: 1px solid #000000; /* Couleur et style de la ligne */
+    margin-top: 30px; /* Espace entre la ligne et le contenu du footer */
+    margin-bottom: -5px;
+}
