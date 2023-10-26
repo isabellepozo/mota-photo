@@ -4,6 +4,16 @@
 add_theme_support("post-thumbnails");
 // set_post_thumbnail_size( 258, 145, true );
 
+// Ajouter une taille d'image personnalisée pour une grande image
+add_image_size( 'large-size', 800, 600, true );
+
+// Ajouter une taille d'image personnalisée pour une miniature
+add_image_size( 'thumbnail-size', 150, 150, true );
+
+// Ajouter une autre taille d'image personnalisée
+add_image_size( 'custom-size', 500, 300, true );
+
+
 // Déclarer les emplacements des menus
 function motaphoto_register_menus() {
     register_nav_menus(array(
