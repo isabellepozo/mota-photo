@@ -16,19 +16,25 @@
                     <?php endif; ?>
 
                     <?php 
-                    $categorie = get_field('categorie');
-                    if ($categorie) :
+                    $categories = get_the_terms(get_the_ID(), 'categorie');
+                    if ($categories) {
+                        $categorie = reset($categories);
+                        echo '<p>Catégorie : ' . $categorie->name . '</p>';
+                    } else {
+                        echo '<p>Catégorie : Non défini</p>';
+                    }
                     ?>
-                    <p>Catégorie : <?php echo $categorie; ?></p>
-                    <?php endif; ?>
 
                     <?php 
-                    $format = get_field('format');
-                    if ($format) :
-                    ?>
-                    <p>Format : <?php echo $format; ?></p>
-                    <?php endif; ?>
-
+                    $formats = get_the_terms(get_the_ID(), 'format');
+                    if ($formats) {
+                        $format = reset($formats);
+                        echo '<p>Format : ' . $format->name . '</p>';
+                    } else {
+                        echo '<p>Format : Non défini</p>';
+                    }
+                    ?>       
+                    
                     <?php 
                     $type = get_field('type');
                     if ($type) :
@@ -54,6 +60,8 @@
 </div>
 
 <?php get_footer(); ?>
+
+
 
 
 
