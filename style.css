@@ -276,4 +276,21 @@ form.wpcf7-form.init input[type=submit]:hover {
   display: flex;
   align-items: flex-end;
   margin-top: 20px;
+}
+
+.photo-infos h2 {
+  font-style: italic;
+  font-size: 66px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.photo-infos p {
+  font-family: "Space Mono";
+  font-size: 14px;
+  line-height: 1;
+}
+
+.photo-infos p:last-child {
+  margin-bottom: 2em; /* Ajoutez la marge basse souhaitée pour le dernier paragraphe */
 }/*# sourceMappingURL=style.css.map */
