@@ -1,3 +1,4 @@
+// ********** Gestion de la modale ********** //
 let contactModal = document.querySelector("#contact-modal")
 let menuItem = document.querySelector("#menu-item-49 a")
 
@@ -10,3 +11,39 @@ window.onclick = function(event) {
         contactModal.style.display = "none";
     }
 }
+
+// ********** Gestion photos miniatures single-photo ********** //
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
