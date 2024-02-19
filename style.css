@@ -247,6 +247,7 @@ form.wpcf7-form.init input[type=submit]:hover {
 }
 
 /*************** STYLE SINGLE PHOTOS ***************/
+/* Partie du haut */
 .photo-section {
   display: flex;
   flex-direction: column;
@@ -360,4 +361,6 @@ form.wpcf7-form.init input[type=submit]:hover {
 
 .bouton-contact {
   margin-right: 7%;
-}/*# sourceMappingURL=style.css.map */
+}
+
+/* Partie du bas *//*# sourceMappingURL=style.css.map */
