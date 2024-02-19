@@ -13,9 +13,7 @@ window.onclick = function(event) {
 }
 
 
-
-
-
+// ********** Gestion du Hover flèches single-photos.php ********** //
 document.addEventListener('DOMContentLoaded', function () {
     var linkPrevious = document.querySelector(".fleche-gauche a");
     var linkNext = document.querySelector(".fleche-droite a");
@@ -25,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function loadImage(link) {
         var imageUrl = link.getAttribute('data-image-url');
 
-        // Vérifier si l'image actuelle est différente de celle que vous essayez de charger
+        // Vérifier si l'image actuelle est différente de celle qui charge
         if (currentImage !== imageUrl) {
             // Créer une nouvelle balise d'image
             var newImage = new Image();
@@ -69,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-
+// **********  ********** //
 
 
 
