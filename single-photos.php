@@ -57,7 +57,7 @@
                     </div>
                 </article>
 
-<!-- *********************************************** Partie milieu ********************************************* -->
+<!-- *********************************** Partie milieu ********************************** -->
 <div class="photo-milieu">
     <div id="texte-bouton">  
         <div class="texte-gauche">
@@ -96,27 +96,61 @@
         </div>
     </div>
 
- <!-- *********************************************** Partie du bas ********************************************* -->
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- <?php endwhile; ?>
+    <?php endwhile; ?>
     <?php endif; ?>
+</div>
+
+ <!-- *********************************** Partie du bas *********************************** -->
+<div class="related-photos-container">
+    <p class="related-photos-title">Vous aimerez aussi</p>
+    <div class="related-photos-grid">
+        <?php
+            // Récupérer les catégories de la photo courante
+            $categories = get_the_terms(get_the_ID(), 'categorie');
+            if ($categories && !is_wp_error($categories)) {
+                $category_ids = wp_list_pluck($categories, 'term_id');
+
+                // Définir les arguments de la requête pour obtenir des photos similaires
+                $args = array(
+                    'post_type' => 'photos',
+                    'posts_per_page' => 2,
+                    'orderby' => 'rand',
+                    'post__not_in' => array(get_the_ID()), // Exclure la photo courante
+                    'tax_query' => array(
+                        array(
+                            'taxonomy' => 'categorie',
+                            'field' => 'term_id',
+                            'terms' => $category_ids,
+                        ),
+                    ),
+                );
+
+                // Exécuter la requête
+                $photos_query = new WP_Query($args);
+
+                if ($photos_query->have_posts()) {
+                    while ($photos_query->have_posts()) {
+                        $photos_query->the_post();
+                        ?>
+                        <div class="related-photo">
+                            <!-- Lien vers la page de la photo -->
+                            <a href="<?php the_permalink(); ?>" class="related-photo-link">
+                                <?php the_post_thumbnail('thumbnail', array('class' => 'related-photo-thumbnail')); ?>
+                            </a>
+                            <div class="related-photo-overlay">
+                                <!-- Lien vers les infos détaillées de la photo -->
+                                <a href="<?php the_permalink(); ?>" class="related-photo-info"><i class="fa fa-eye"></i></a>
+                                <!-- Lien pour ouvrir la photo dans une lightbox -->
+                                <a href="#" class="open-lightbox related-photo-lightbox" data-image-url="<?php echo esc_url(wp_get_attachment_url(get_post_thumbnail_id())); ?>"><i class="fa fa-expand"></i></a>
+                            </div>
+                        </div>
+                        <?php
+                    }
+                    wp_reset_postdata(); // Réinitialise les données des requêtes WordPress
+                }
+            }
+        ?>
+    </div>
 </div>
 
 <?php get_footer(); ?>
