@@ -64,7 +64,7 @@
             <p>Cette photo vous intéresse ?</p>
         </div>
         <div class="bouton-contact">
-            <a href="#">Contact</a>
+            <a href="#contactForm">Contact</a>
         </div>
     </div>
     
