@@ -309,6 +309,7 @@ form.wpcf7-form.init input[type=submit]:hover {
   align-items: center;
   justify-content: space-between;
   margin: 10px 0;
+  border-bottom: 1px solid black;
 }
 
 .bouton-contact,

@@ -22,6 +22,8 @@ function theme_enqueue_scripts() {
  }
  add_action('wp_enqueue_scripts', 'theme_enqueue_scripts');
 
+// Ajoutez des tailles d'images personnalisées
+add_image_size('thumbnail_80x70', 80, 70, true); // Changez les dimensions selon vos besoins
 
 
 
