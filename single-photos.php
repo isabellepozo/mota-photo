@@ -102,7 +102,7 @@
 
  <!-- *********************************** Partie du bas *********************************** -->
 <div class="related-photos-container">
-    <p class="related-photos-title">Vous aimerez aussi</p>
+    <p class="related-photos-title">VOUS AIMEREZ AUSSI</p>
     <div class="related-photos-grid">
         <?php
             // Récupérer les catégories de la photo courante

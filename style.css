@@ -371,16 +371,21 @@ form.wpcf7-form.init input[type=submit]:hover {
 
 /* Partie du bas */
 .related-photos-container {
-  text-align: left; /* Aligner le titre à gauche */
+  text-align: left;
 }
 
 .related-photos-title {
-  font-size: 24px; /* Ajuster la taille du titre selon vos préférences */
+  font-size: 18px;
+  font-family: "Space Mono", monospace;
+  letter-spacing: 0.1em;
+  margin-top: 6%;
+  margin-bottom: 4%;
 }
 
 .related-photos-grid {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 5%;
 }
 
 .related-photo {
