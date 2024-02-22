@@ -8,7 +8,7 @@
 .photo-contenu {   
     margin-left: auto;
     margin-right: auto;
-    max-width: 1200px;   
+    max-width: 1148px;   
 }
 
 .photo-contenu-infos {
@@ -122,9 +122,29 @@
  }
  
  /* Partie du bas */
-  
+ .related-photos-container {
+    text-align: left; /* Aligner le titre à gauche */
+}
 
+.related-photos-title {
+    font-size: 24px; /* Ajuster la taille du titre selon vos préférences */
+}
 
+.related-photos-grid {
+    display: flex;
+    justify-content: space-between;
+}
+
+.related-photo {
+    width: 564px; /* Largeur fixe pour chaque image */
+    height: 495px; /* Hauteur fixe pour chaque image */
+}
+
+.related-photo-thumbnail {
+    width: 100%; /* La largeur de l'image prend 100% de la largeur du conteneur */
+    height: 100%; /* La hauteur de l'image prend 100% de la hauteur du conteneur */
+    object-fit: cover; /* L'image est redimensionnée tout en conservant ses proportions */
+}
 
 
 

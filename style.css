@@ -86,6 +86,7 @@ article img:hover {
   margin-top: 0;
   height: 80px;
   box-shadow: 0px 4px 14px 10px rgba(0, 0, 0, 0.03);
+  max-width: 1440px;
 }
 
 .nav-header {
@@ -114,7 +115,7 @@ header .menu-item {
 ul.menu {
   display: flex;
   justify-content: center;
-  padding-left: 0;
+  padding-right: 22px;
   list-style-type: none;
 }
 
@@ -140,7 +141,7 @@ ul #menu-menu-footer.menu {
 
 footer {
   margin-top: 30px;
-  margin-bottom: 20px;
+  margin-bottom: 2px;
   background-color: #ffffff;
 }
 
@@ -256,7 +257,7 @@ form.wpcf7-form.init input[type=submit]:hover {
 .photo-contenu {
   margin-left: auto;
   margin-right: auto;
-  max-width: 1200px;
+  max-width: 1148px;
 }
 
 .photo-contenu-infos {
@@ -368,4 +369,27 @@ form.wpcf7-form.init input[type=submit]:hover {
   margin-bottom: -12px;
 }
 
-/* Partie du bas *//*# sourceMappingURL=style.css.map */
+/* Partie du bas */
+.related-photos-container {
+  text-align: left; /* Aligner le titre à gauche */
+}
+
+.related-photos-title {
+  font-size: 24px; /* Ajuster la taille du titre selon vos préférences */
+}
+
+.related-photos-grid {
+  display: flex;
+  justify-content: space-between;
+}
+
+.related-photo {
+  width: 564px; /* Largeur fixe pour chaque image */
+  height: 495px; /* Hauteur fixe pour chaque image */
+}
+
+.related-photo-thumbnail {
+  width: 100%; /* La largeur de l'image prend 100% de la largeur du conteneur */
+  height: 100%; /* La hauteur de l'image prend 100% de la hauteur du conteneur */
+  object-fit: cover; /* L'image est redimensionnée tout en conservant ses proportions */
+}/*# sourceMappingURL=style.css.map */

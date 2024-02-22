@@ -135,7 +135,11 @@
                         <div class="related-photo">
                             <!-- Lien vers la page de la photo -->
                             <a href="<?php the_permalink(); ?>" class="related-photo-link">
-                                <?php the_post_thumbnail('thumbnail', array('class' => 'related-photo-thumbnail')); ?>
+                            <?php
+                                $full_image_url = wp_get_attachment_image_src(get_post_thumbnail_id(), 'full');
+                                echo '<img src="' . esc_url($full_image_url[0]) . '" class="related-photo-thumbnail" alt="' . get_the_title() . '">';
+                            ?>
+
                             </a>
                             <div class="related-photo-overlay">
                                 <!-- Lien vers les infos détaillées de la photo -->
