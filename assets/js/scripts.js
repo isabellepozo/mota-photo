@@ -73,7 +73,42 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-// **********  ********** //
+// ********** Gestion de la ligthbox  ********** //
+
+// Fonction pour ouvrir la lightbox
+function openLightbox(imageUrl) {
+    // Afficher la lightbox et charger l'image
+    document.getElementById('lightbox').style.display = 'block';
+    document.getElementById('lightbox-image').src = imageUrl;
+}
+
+// Fonction pour fermer la lightbox
+function closeLightbox() {
+    // Masquer la lightbox
+    document.getElementById('lightbox').style.display = 'none';
+}
+
+// Ajouter des écouteurs d'événements pour ouvrir et fermer la lightbox
+document.addEventListener('DOMContentLoaded', function () {
+    // Écouteur d'événement pour ouvrir la lightbox lorsqu'on clique sur l'icône plein écran
+    document.getElementById('open-lightbox').addEventListener('click', function (event) {
+        event.preventDefault(); // Empêcher le comportement par défaut du lien
+        openLightbox(this.getAttribute('data-image-url'));
+    });
+
+    // Écouteur d'événement pour fermer la lightbox lorsqu'on clique sur le bouton de fermeture
+    document.getElementById('close-lightbox').addEventListener('click', function () {
+        closeLightbox();
+    });
+
+    // Écouteur d'événement pour fermer la lightbox lorsqu'on clique en dehors de l'image
+    window.onclick = function (event) {
+        var lightbox = document.getElementById('lightbox');
+        if (event.target == lightbox) {
+            closeLightbox();
+        }
+    };
+});
 
 
 

@@ -428,4 +428,32 @@ img.icon_fullscreen {
   left: 5%;
   width: 35px;
   height: 35px;
+}
+
+/* Ajoutez ces styles à votre fichier de style CSS */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 1;
+}
+
+.lightbox img {
+  display: block;
+  margin: auto;
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.close-lightbox {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
 }/*# sourceMappingURL=style.css.map */

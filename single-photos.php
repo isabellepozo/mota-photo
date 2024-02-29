@@ -148,6 +148,8 @@
                                 <a href="#" class="open-lightbox related-photo-lightbox" data-image-url="<?php echo esc_url(wp_get_attachment_url(get_post_thumbnail_id())); ?>"><img src="<?php echo esc_url(bloginfo('template_directory') . '/assets/images/icon_fullscreen.png'); ?>" class="icon_fullscreen" alt="Icon plein écran"></a>
                             </div>
                         </div>
+                        <?php get_template_part('lightbox-template'); ?>
+                        
                         <?php
                     }
                     wp_reset_postdata(); // Réinitialise les données des requêtes WordPress
