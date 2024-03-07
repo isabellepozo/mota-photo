@@ -1,28 +1,78 @@
-/* Ajoutez ces styles à votre fichier de style CSS */
+/* Lightbox Styles */
 
-.lightbox {
+    @keyframes lightboxIn {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+
+    
+#lightbox{
     display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    z-index: 1;
+    background-color:rgba(0, 0, 0, 0.9);
+    z-index: 10;
+    overflow: auto;
+    animation: lightboxIn 2s;
 }
 
-.lightbox img {
-    display: block;
-    margin: auto;
-    max-width: 90%;
-    max-height: 90%;
+.lightbox__next,
+.lightbox__prev {
+    border: none;
+    width: 100px;
+    height: 50%;
+    position: fixed;
+    top: 50%;
+    z-index: 12;    
 }
 
-.close-lightbox {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    font-size: 30px;
-    color: #fff;
+.lightbox__next{
+    background: url(assets/images/arrows-next.png) center center / 93px 18px no-repeat;
+    right: 10%;
+    margin-top: -250px;   
+}
+
+.lightbox__prev{
+    background: url(assets/images/arrows-prev.png) center center / 93px 18px no-repeat; 
+    left: 10%;  
+    margin-top: -250px;
+}
+
+.lightbox__close {
+    border: none;
+    width: 15px;
+    height: 15px;
+    background: url(assets/images/ligthbox-close.png) center center / 23px 23px no-repeat; 
+    position: fixed;
+    top: 80px;
+    right: 10%;
+}
+
+#lightbox button {
+    opacity: 0.5;
     cursor: pointer;
+    transition: opacity .3s; 
 }
+
+#lightbox button:hover {
+    opacity: 1;
+}
+
+.lightbox__container img {
+    max-width: 100%;
+    height: auto;
+    animation: lightboxIn 2s;
+}
+
+.lightbox__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 50px;
+    margin-right: 50px;
+    min-height: 100vh;
+}
+

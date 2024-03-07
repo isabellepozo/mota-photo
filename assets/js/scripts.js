@@ -3,7 +3,7 @@ let contactModal = document.querySelector("#contact-modal")
 let menuItem = document.querySelector("#menu-item-49 a")
 let contactButton = document.querySelector(".bouton-contact a");
 
-menuItem.addEventListener("click", function (){
+menuItem.addEventListener("click", function () {
     contactModal.style.display = "block"
 })
 
@@ -12,7 +12,7 @@ contactButton.addEventListener("click", function (event) {
     contactModal.style.display = "block";
 });
 
-window.onclick = function(event) {
+window.onclick = function (event) {
     if (event.target == contactModal) {
         contactModal.style.display = "none";
     }
@@ -73,43 +73,39 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-// ********** Gestion de la ligthbox  ********** //
+// **************************** Gestion de la lightbox ***************************** //
+// document.addEventListener('DOMContentLoaded', function() {
+//     (function () {
+//         let lightbox = document.getElementById("lightbox");
+//         let openLightboxButtons = document.querySelectorAll(".related-photo-lightbox");
+//         let closeLightboxButton = document.querySelector(".close-lightbox");
 
-// Fonction pour ouvrir la lightbox
-function openLightbox(imageUrl) {
-    // Afficher la lightbox et charger l'image
-    document.getElementById('lightbox').style.display = 'block';
-    document.getElementById('lightbox-image').src = imageUrl;
-}
+//         console.log('lightbox:', lightbox);
+//         console.log('closeLightboxButton:', closeLightboxButton);
 
-// Fonction pour fermer la lightbox
-function closeLightbox() {
-    // Masquer la lightbox
-    document.getElementById('lightbox').style.display = 'none';
-}
+//         if (lightbox && closeLightboxButton) {
+//             openLightboxButtons.forEach(function (button) {
+//                 button.addEventListener("click", function (event) {
+//                     event.preventDefault();
+//                     console.log('Clicked openLightbox button');
+//                     openLightbox(this.getAttribute('data-image-url'));
+//                 });
+//             });
 
-// Ajouter des écouteurs d'événements pour ouvrir et fermer la lightbox
-document.addEventListener('DOMContentLoaded', function () {
-    // Écouteur d'événement pour ouvrir la lightbox lorsqu'on clique sur l'icône plein écran
-    document.getElementById('open-lightbox').addEventListener('click', function (event) {
-        event.preventDefault(); // Empêcher le comportement par défaut du lien
-        openLightbox(this.getAttribute('data-image-url'));
-    });
+//             closeLightboxButton.addEventListener("click", function () {
+//                 console.log('Clicked closeLightbox button');
+//                 lightbox.style.display = "none";
+//             });
+//         }
 
-    // Écouteur d'événement pour fermer la lightbox lorsqu'on clique sur le bouton de fermeture
-    document.getElementById('close-lightbox').addEventListener('click', function () {
-        closeLightbox();
-    });
-
-    // Écouteur d'événement pour fermer la lightbox lorsqu'on clique en dehors de l'image
-    window.onclick = function (event) {
-        var lightbox = document.getElementById('lightbox');
-        if (event.target == lightbox) {
-            closeLightbox();
-        }
-    };
-});
-
+//         function openLightbox(imageUrl) {
+//             if (lightbox) {
+//                 lightbox.style.display = "block";
+//                 document.getElementById('lightbox-image').src = imageUrl;
+//             }
+//         }
+//     })();
+// });
 
 
 
