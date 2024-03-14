@@ -385,13 +385,15 @@ form.wpcf7-form.init input[type=submit]:hover {
 .related-photos-grid {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 5%;
+  flex-wrap: wrap;
 }
 
 .related-photo {
   position: relative;
   width: 35em;
   height: 31em;
+  width: calc(50% - 10px); /* Prendre 50% de la largeur du conteneur parent, avec un espacement entre les éléments */
+  margin-bottom: 20px; /* Espacement entre les lignes de photos */
 }
 
 .related-photo-thumbnail {
@@ -547,4 +549,22 @@ img.icon_fullscreen {
   margin-left: auto;
   margin-right: auto;
   max-width: 1148px;
+}
+
+.load-more-container {
+  text-align: center;
+  margin-top: 20px; /* Ajustez selon votre mise en page */
+}
+
+.load-more-button {
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Animation au survol */
+}
+
+.load-more-button:hover {
+  background-color: #ddd;
 }/*# sourceMappingURL=style.css.map */

@@ -137,13 +137,16 @@
 .related-photos-grid {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 5%;
+    // margin-bottom: 5%;
+    flex-wrap: wrap;
 }
 
 .related-photo {
     position: relative;
     width: 35em;
     height: 31em; 
+    width: calc(50% - 10px); /* Prendre 50% de la largeur du conteneur parent, avec un espacement entre les éléments */
+    margin-bottom: 20px; /* Espacement entre les lignes de photos */
 }
 
 .related-photo-thumbnail {
@@ -181,7 +184,6 @@ img.icon_fullscreen {
     width: 35px;
     height: 35px;
 }
-
 
 
 

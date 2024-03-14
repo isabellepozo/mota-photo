@@ -38,3 +38,22 @@
     margin-right: auto;
     max-width: 1148px; 
 }
+
+.load-more-container {
+    text-align: center;
+    margin-top: 20px; /* Ajustez selon votre mise en page */
+}
+
+.load-more-button {
+    background-color: #f0f0f0; 
+    color: #333; 
+    padding: 10px 20px; 
+    border: none; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; /* Animation au survol */
+}
+
+.load-more-button:hover {
+    background-color: #ddd; 
+}
+

@@ -22,7 +22,7 @@ get_header(); ?>
             // Définir les arguments de la requête pour obtenir des photos aléatoires
             $args = array(
                 'post_type' => 'photos',
-                'posts_per_page' => 2, // Nombre de photos à afficher
+                'posts_per_page' => 8, // Nombre de photos à afficher
                 'orderby' => 'rand', // Tri aléatoire
             );
 
@@ -58,7 +58,16 @@ get_header(); ?>
             }
         ?>
     </div>
+    <div class="load-more-container">
+    <button class="load-more-button">Charger plus</button>
+    </div>
+
 </section>
+
+
+
+
+
 
 
 
