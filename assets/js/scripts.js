@@ -73,44 +73,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-// **************************** Gestion de la lightbox ***************************** //
-// document.addEventListener('DOMContentLoaded', function() {
-//     (function () {
-//         let lightbox = document.getElementById("lightbox");
-//         let openLightboxButtons = document.querySelectorAll(".related-photo-lightbox");
-//         let closeLightboxButton = document.querySelector(".close-lightbox");
-
-//         console.log('lightbox:', lightbox);
-//         console.log('closeLightboxButton:', closeLightboxButton);
-
-//         if (lightbox && closeLightboxButton) {
-//             openLightboxButtons.forEach(function (button) {
-//                 button.addEventListener("click", function (event) {
-//                     event.preventDefault();
-//                     console.log('Clicked openLightbox button');
-//                     openLightbox(this.getAttribute('data-image-url'));
-//                 });
-//             });
-
-//             closeLightboxButton.addEventListener("click", function () {
-//                 console.log('Clicked closeLightbox button');
-//                 lightbox.style.display = "none";
-//             });
-//         }
-
-//         function openLightbox(imageUrl) {
-//             if (lightbox) {
-//                 lightbox.style.display = "block";
-//                 document.getElementById('lightbox-image').src = imageUrl;
-//             }
-//         }
-//     })();
-// });
-
-
-
-
-
 
 
 

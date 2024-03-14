@@ -23,9 +23,9 @@ function theme_enqueue_scripts() {
 
     // Charger le fichier lightbox.js en tant que module avec l'attribut defer
     wp_enqueue_script('lightbox', get_template_directory_uri() . '/assets/js/lightbox.js', array('jquery'), null, true);
-    wp_script_add_data('lightbox', 'type', 'module');
+    // wp_script_add_data('lightbox', 'type', 'module');
     wp_script_add_data('lightbox', 'defer', true);
- }
+  }
  
  add_action('wp_enqueue_scripts', 'theme_enqueue_scripts');
 
