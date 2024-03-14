@@ -32,7 +32,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const imageUrl = imageUrls[index];
         imageContainer.src = imageUrl;
         currentIndex = index;
-        console.log('Affichage de l\'image à l\'index', index, ':', imageUrl);
     }
 
     closeButton.addEventListener('click', function () {
@@ -43,13 +42,11 @@ document.addEventListener("DOMContentLoaded", function () {
     // Ajouter la logique de navigation avec les flèches
     nextButton.addEventListener('click', function () {
         currentIndex = (currentIndex + 1) % imageUrls.length;
-        console.log('Nouvelle valeur de currentIndex (après clic sur Next) :', currentIndex);
         displayImage(currentIndex);
     });
 
     prevButton.addEventListener('click', function () {
         currentIndex = (currentIndex - 1 + imageUrls.length) % imageUrls.length;
-        console.log('Nouvelle valeur de currentIndex (après clic sur Previous) :', currentIndex);
         displayImage(currentIndex);
     });
 });

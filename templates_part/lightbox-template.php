@@ -52,7 +52,7 @@ if ($query->have_posts()) {
     }
 
 // Ajoute l'instruction var_dump ici pour afficher les URLs récupérées
-var_dump($image_urls);
+// var_dump($image_urls);
 
 }
 
