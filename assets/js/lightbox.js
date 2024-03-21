@@ -1,5 +1,4 @@
 //   lightbox.js
-
 document.addEventListener("DOMContentLoaded", function () {
     const lightbox = document.getElementById('lightbox');
     const closeButton = lightbox.querySelector('.lightbox__close');
@@ -29,25 +28,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Fonction pour afficher une image dans la lightbox
     function displayImage(index) {
+        console.log('Affichage de l\'image à l\'index :', index);
         const imageUrl = imageUrls[index];
         imageContainer.src = imageUrl;
         currentIndex = index;
     }
 
     closeButton.addEventListener('click', function () {
+        console.log('Fermeture de la lightbox');
         // Cacher la lightbox
         lightbox.style.display = 'none';
     });
 
     // Ajouter la logique de navigation avec les flèches
     nextButton.addEventListener('click', function () {
+        console.log('Passage à l\'image suivante');
         currentIndex = (currentIndex + 1) % imageUrls.length;
         displayImage(currentIndex);
     });
 
     prevButton.addEventListener('click', function () {
+        console.log('Passage à l\'image précédente');
         currentIndex = (currentIndex - 1 + imageUrls.length) % imageUrls.length;
         displayImage(currentIndex);
     });
+
 });
+
+
 

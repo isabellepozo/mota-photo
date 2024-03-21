@@ -1,3 +1,4 @@
+<!-- Lightbox-template -->
 <div id="lightbox">
     <!-- Bouton de fermeture de la lightbox -->
     <button class="lightbox__close"></button>
@@ -13,17 +14,20 @@
     }
     ?>
 
-    <?php
+<?php
     // Bouton de navigation vers l'image suivante
     $next_post = get_next_post();
     if ($next_post) {
         $next_post_link = get_permalink($next_post);
         $next_image_id = get_post_thumbnail_id($next_post->ID);
-        $next_image_url = wp_get_attachment_image_src($next_image_id, 'full')[0];
+        $next_image_url = wp_get_attachment_image_src($next_image_id, 'full');
+        if ($next_image_url) {
+            $next_image_url = $next_image_url[0];
+        }
+        
         echo '<button class="lightbox__next" data-image-url="' . $next_image_url . '"></button>';
     }
     ?>
-
 
 
     <!-- Conteneur de l'image -->
@@ -50,10 +54,6 @@ if ($query->have_posts()) {
         $image_url = wp_get_attachment_image_src($image_id, 'full')[0];
         $image_urls[] = $image_url;
     }
-
-// Ajoute l'instruction var_dump ici pour afficher les URLs récupérées
-// var_dump($image_urls);
-
 }
 
 wp_reset_postdata();
@@ -63,5 +63,3 @@ wp_reset_postdata();
     // Stocker les URLs des images dans un tableau JavaScript
     const imageUrls = <?php echo json_encode($image_urls); ?>;
 </script>
-
-
