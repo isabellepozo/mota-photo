@@ -19,7 +19,28 @@ footer {
 footer::before {
     content: "";
     display: block;
-    border-top: 1px solid #000000; /* Couleur et style de la ligne */
-    margin-top: 30px; /* Espace entre la ligne et le contenu du footer */
+    border-top: 1px solid #000000; 
+    margin-top: 30px; 
     margin-bottom: -5px;
 }
+
+/* CSS pour la version mobile du footer */
+@media (max-width: 767px) {
+    .footer .menu-item {
+        margin-right: 0; 
+        margin-bottom: 10px; 
+        text-align: center; 
+    }
+
+    ul#menu-menu-footer.menu {
+        flex-direction: column-reverse; 
+        align-items: center; 
+        margin-top: 50px;
+        margin-bottom: 30px;
+    }
+
+    footer::before {
+        margin-top: 10px; 
+    }
+}
+
