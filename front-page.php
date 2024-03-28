@@ -19,45 +19,23 @@ get_header(); ?>
     <section class="accueil-contenu">
     <div class="related-photos-grid">
 
+
     <?php
-        // Récupérer les URLs de toutes les images du type de publication personnalisé "photos"
-        $all_photo_urls = array();
-        $args_all_photos = array(
-            'post_type' => 'photos',
-            'posts_per_page' => -1, // Récupérer toutes les photos
-        );
+            // Définir les arguments de la requête pour obtenir des photos aléatoires
+            $args = array(
+                'post_type' => 'photos',
+                'posts_per_page' => 8, // Nombre de photos à afficher
+                'orderby' => 'rand', 
+            );
 
-        // Exécuter la requête
-        $query_all_photos = new WP_Query($args_all_photos);
+            // Exécuter la requête
+            $photos_query = new WP_Query($args);
 
-        if ($query_all_photos->have_posts()) {
-            while ($query_all_photos->have_posts()) {
-                $query_all_photos->the_post();
-                $photo_id = get_the_ID();
-                $photo_url = wp_get_attachment_url(get_post_thumbnail_id($photo_id));
-                $all_photo_urls[$photo_id] = $photo_url;
-            }
-        }
-
-        wp_reset_postdata(); // Réinitialiser la requête WordPress
-
-        // Définir les arguments de la requête pour obtenir des photos aléatoires
-        $args = array(
-            'post_type' => 'photos',
-            'posts_per_page' => 8, // Nombre de photos à afficher
-            'orderby' => 'rand', 
-        );
-
-        // Exécuter la requête
-        $photos_query = new WP_Query($args);
-
-        // Vérifier si des photos sont disponibles
-        if ($photos_query->have_posts()) {
-            // Boucle sur chaque photo
-            while ($photos_query->have_posts()) {
-                $photos_query->the_post();
-                $current_photo_id = get_the_ID();
-                $current_photo_url = $all_photo_urls[$current_photo_id];
+            // Vérifier si des photos sont disponibles
+            if ($photos_query->have_posts()) {
+                // Boucle sur chaque photo
+                while ($photos_query->have_posts()) {
+                    $photos_query->the_post();
         ?>
         <div class="related-photo">
             <!-- Lien vers la page de la photo -->
@@ -73,52 +51,22 @@ get_header(); ?>
                 <!-- Lien vers les infos détaillées de la photo -->
                 <a href="<?php the_permalink(); ?>" class="related-photo-info"><img src="<?php echo esc_url(bloginfo('template_directory') . '/assets/images/icon_eye.png'); ?>" class="icon_eye" alt="Icon en forme d'oeil"></a>
                 <!-- Lien pour ouvrir la photo dans une lightbox -->
-                <a href="#" class="open-lightbox related-photo-lightbox" data-image-url="<?php echo esc_url($current_photo_url); ?>"><img src="<?php echo esc_url(bloginfo('template_directory') . '/assets/images/icon_fullscreen.png'); ?>" class="icon_fullscreen" alt="Icon plein écran"></a>
+                <a href="#" class="open-lightbox related-photo-lightbox" data-image-url="<?php echo esc_url(wp_get_attachment_url(get_post_thumbnail_id())); ?>"><img src="<?php echo esc_url(bloginfo('template_directory') . '/assets/images/icon_fullscreen.png'); ?>" class="icon_fullscreen" alt="Icon plein écran"></a>
             </div>
         </div>
         <?php
+                }
+                wp_reset_postdata(); // Réinitialise les données des requêtes WordPress
             }
-            wp_reset_postdata(); // Réinitialise les données des requêtes WordPress
-        }
     ?>
 
 
+        </div>
+        <div class="load-more-container">
+            <button class="load-more-button">Charger plus</button>
+        </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-    <div class="load-more-container">
-    <button class="load-more-button">Charger plus</button>
-    </div>
-
-</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    </section>
 
     </main><!-- #primary -->
 </body>

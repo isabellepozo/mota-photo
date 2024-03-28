@@ -1,19 +1,17 @@
 /* Lightbox Styles */
+@keyframes lightboxIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
 
-    @keyframes lightboxIn {
-        from {opacity: 0;}
-        to {opacity: 1;}
-    }
-
-    
-#lightbox{
+#lightbox {
     display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color:rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.9);
     z-index: 10;
     overflow: auto;
     animation: lightboxIn 2s;
@@ -29,15 +27,15 @@
     z-index: 12;    
 }
 
-.lightbox__next{
+.lightbox__next {
     background: url(assets/images/arrows-next.png) center center / 93px 18px no-repeat;
-    right: 10%;
+    right: 8%;
     margin-top: -250px;   
 }
 
-.lightbox__prev{
+.lightbox__prev {
     background: url(assets/images/arrows-prev.png) center center / 93px 18px no-repeat; 
-    left: 10%;  
+    left: 8%;  
     margin-top: -250px;
 }
 
@@ -47,8 +45,9 @@
     height: 15px;
     background: url(assets/images/ligthbox-close.png) center center / 23px 23px no-repeat; 
     position: fixed;
-    top: 80px;
-    right: 10%;
+    top: 30px;
+    right: 40px; /* Ajustement de la position de la croix */
+    z-index: 13; /* Assure que la croix est au-dessus des flèches */
 }
 
 #lightbox button {
@@ -62,18 +61,116 @@
 }
 
 .lightbox__container img {
-    max-width: 100%;
-    height: auto;
+    max-width: calc(100% - 40px); /* Limite la largeur de l'image à 100% de la largeur de la lightbox */
+    max-height: calc(100% - 40px); /* Limite la hauteur de l'image à 100% de la hauteur de la lightbox */
+    object-fit: contain; /* Maintient les proportions de l'image tout en s'assurant qu'elle s'adapte à la lightbox */
     animation: lightboxIn 2s;
 }
 
 .lightbox__container {
+    position: relative; /* Ajoute une position relative pour centrer verticalement */
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 50px;
-    margin-right: 50px;
-    min-height: 100vh;
+    height: 100vh; /* Assure que la lightbox a la hauteur de l'écran */
+    padding: 20px 0; /* Ajoute de l'espace en haut et en bas de la lightbox */
+    box-sizing: border-box; /* Assure que le padding est inclus dans la largeur totale */
+    overflow: hidden; /* Masque tout contenu débordant de la lightbox */
 }
 
+/* Style pour les métadonnées */
+.lightbox__metadata {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    width: calc(100% - 20px); /* Largeur maximale égale à celle de la lightbox moins les marges */
+    justify-content: space-between;
+}
 
+.lightbox__reference {
+    color: white;
+    margin-left: 15%;
+}
+
+.lightbox__category {
+    color: white;
+    margin-right: 15%;
+}
+
+/* CSS pour la version mobile */
+@media (max-width: 767px) {
+    .lightbox__next,
+    .lightbox__prev {
+        width: 60px;
+        height: 30%;
+        position: fixed;
+        top: 50%;
+        z-index: 12;
+    }
+
+    .lightbox__next {
+        right: 5%;
+        margin-top: -15vh; /* Ajustement pour centrer verticalement les flèches */
+    }
+
+    .lightbox__prev {
+        left: 5%;
+        margin-top: -15vh; /* Ajustement pour centrer verticalement les flèches */
+    }
+
+    .lightbox__close {
+        border: none;
+        width: 15px;
+        height: 15px;
+        background: url(assets/images/ligthbox-close.png) center center / 23px 23px no-repeat;
+        position: fixed;
+        top: 30px;
+        right: 20px;
+        z-index: 13;
+    }
+
+    .lightbox__container img {
+        max-width: calc(100% - 20px);
+        max-height: calc(100% - 20px);
+        object-fit: contain;
+        animation: lightboxIn 2s;
+        height: auto; /* Réinitialiser la hauteur */
+        width: auto; /* Réinitialiser la largeur */
+        max-height: 60vh; /* Limiter la hauteur de l'image */
+        margin: auto; /* Centrer horizontalement */
+        margin-top: calc((60vh - 20px - 15px - 15px - 15px) / 2); /* Ajuster pour centrer verticalement */
+    }
+
+    .lightbox__container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 60vh;
+        padding: 10px 0;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    .lightbox__metadata {
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        padding: 0 10px;
+    }
+
+    .lightbox__reference,
+    .lightbox__category {
+        color: white;
+        flex: 1;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+}

@@ -41,7 +41,7 @@
 
 .photo-infos h2 {
     font-style: italic;
-    font-size: 66px;
+    font-size: 40px;
     font-weight: 400;
     margin : 0; 
 }
@@ -146,7 +146,7 @@
     width: 35em;
     height: 31em; 
     width: calc(50% - 10px); /* Prendre 50% de la largeur du conteneur parent, avec un espacement entre les éléments */
-    margin-bottom: 20px; /* Espacement entre les lignes de photos */
+    margin-bottom: 20px; 
 }
 
 .related-photo-thumbnail {
@@ -180,12 +180,121 @@ img.icon_eye {
 img.icon_fullscreen {
     position: absolute;
     top: 5%;
-    left: 5%;
+    right: 5%;
     width: 35px;
     height: 35px;
 }
 
+/*************** STYLE SINGLE PHOTOS MOBILE ***************/
+@media (max-width: 767px) {
+    /* Partie du haut */
+    body {
+        margin: auto;
+    }
+    
+    .photo-section {
+        display: flex;
+        flex-direction: column; 
+    }
 
+    .image-photo img {
+        max-width: 90%; 
+        height: auto; 
+        margin: auto;
+    }
+
+    .photo-contenu {   
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 90%; 
+    }
+
+    .photo-contenu-infos {
+        flex-direction: column-reverse;
+        align-items: center; 
+        text-align: center; 
+    }
+
+    .photo-infos {
+        width: 90%; 
+        border-bottom: solid 1px; 
+        margin-top: 1em;
+        margin-bottom: 1em; 
+        margin-right: 1em;
+    }
+
+    .photo-infos h2 {
+        font-size: 36px; 
+        margin: 0; 
+    }
+
+    .photo-infos p {
+        font-size: 12px; 
+        line-height: 1.2; 
+    }
+
+    /* Partie du milieu */
+    .photo-milieu {
+        display: flex;
+        flex-direction: column; 
+        align-items: center; 
+        margin: 20px 0; 
+        border-bottom: 1px solid black; 
+        width: 90%;
+    }
+
+    .bouton-contact,
+    .fleches {
+        width: 90%; 
+     }
+
+    #texte-bouton {
+        flex-direction: column;
+        width: 100%; 
+        align-items: center;
+        margin-bottom: 1.5em;
+    }
+
+    .texte-gauche {   
+        width: 95%;  
+    }
+
+    .photo-fleches {
+        display: none;
+    }
+    
+    /* Partie du bas */
+    .related-photos-container {
+        text-align: center; 
+        margin-top: 20px; 
+        margin-bottom: 20px; 
+    }
+
+    .related-photos-title {
+        font-size: 16px; 
+        margin-top: 10px; 
+        margin-bottom: 30px; 
+    }
+
+    .related-photos-grid {
+        display: flex;
+        justify-content: center; 
+        flex-wrap: wrap;
+    }
+
+    .related-photo {
+        width: 318px; 
+        height: 280px; 
+        margin: 10px; 
+    }
+
+    .related-photo-thumbnail {
+        width: 100%;
+        height: 100%; 
+        object-fit: cover; /* Ajuste la taille de l'image pour couvrir le conteneur */
+    }
+
+}
 
 
 

@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const nextButton = lightbox.querySelector('.lightbox__next');
     const prevButton = lightbox.querySelector('.lightbox__prev');
     const imageContainer = lightbox.querySelector('.lightbox__container img');
+    const referenceElement = lightbox.querySelector('.lightbox__reference');
+    const categoryElement = lightbox.querySelector('.lightbox__category');
 
     let currentIndex = 0; // Index de l'image actuellement affichée
 
@@ -28,32 +30,46 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Fonction pour afficher une image dans la lightbox
     function displayImage(index) {
-        console.log('Affichage de l\'image à l\'index :', index);
         const imageUrl = imageUrls[index];
         imageContainer.src = imageUrl;
+
+        // Récupérer les métadonnées de l'image
+        const imageDataItem = imageData[index];
+
+        // Mettre à jour les métadonnées de l'image
+        referenceElement.textContent = "Référence : " + imageDataItem.reference;
+
+        let categories = "";
+        if (imageDataItem.categories) {
+            imageDataItem.categories.forEach(function(category) {
+                categories += category.name + ", ";
+            });
+            categories = categories.slice(0, -2); // Retire la dernière virgule et l'espace
+        }
+        categoryElement.textContent = "Catégorie : " + categories;
+
         currentIndex = index;
     }
 
     closeButton.addEventListener('click', function () {
-        console.log('Fermeture de la lightbox');
         // Cacher la lightbox
         lightbox.style.display = 'none';
     });
 
     // Ajouter la logique de navigation avec les flèches
     nextButton.addEventListener('click', function () {
-        console.log('Passage à l\'image suivante');
         currentIndex = (currentIndex + 1) % imageUrls.length;
         displayImage(currentIndex);
     });
 
     prevButton.addEventListener('click', function () {
-        console.log('Passage à l\'image précédente');
         currentIndex = (currentIndex - 1 + imageUrls.length) % imageUrls.length;
         displayImage(currentIndex);
     });
 
 });
+
+
 
 
 

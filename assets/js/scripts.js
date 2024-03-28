@@ -7,10 +7,10 @@ menuItem.addEventListener("click", function () {
     contactModal.style.display = "block"
 })
 
-contactButton.addEventListener("click", function (event) {
-    event.preventDefault(); // Empêche le comportement par défaut du lien
-    contactModal.style.display = "block";
-});
+// contactButton.addEventListener("click", function (event) {
+//     event.preventDefault(); // Empêche le comportement par défaut du lien
+//     contactModal.style.display = "block";
+// });
 
 window.onclick = function (event) {
     if (event.target == contactModal) {

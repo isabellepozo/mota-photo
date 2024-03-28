@@ -289,7 +289,7 @@ form.wpcf7-form.init input[type=submit]:hover {
 
 .photo-infos h2 {
   font-style: italic;
-  font-size: 66px;
+  font-size: 40px;
   font-weight: 400;
   margin: 0;
 }
@@ -393,7 +393,7 @@ form.wpcf7-form.init input[type=submit]:hover {
   width: 35em;
   height: 31em;
   width: calc(50% - 10px); /* Prendre 50% de la largeur du conteneur parent, avec un espacement entre les éléments */
-  margin-bottom: 20px; /* Espacement entre les lignes de photos */
+  margin-bottom: 20px;
 }
 
 .related-photo-thumbnail {
@@ -427,11 +427,103 @@ img.icon_eye {
 img.icon_fullscreen {
   position: absolute;
   top: 5%;
-  left: 5%;
+  right: 5%;
   width: 35px;
   height: 35px;
 }
 
+/*************** STYLE SINGLE PHOTOS MOBILE ***************/
+@media (max-width: 767px) {
+  /* Partie du haut */
+  body {
+    margin: auto;
+  }
+  .photo-section {
+    display: flex;
+    flex-direction: column;
+  }
+  .image-photo img {
+    max-width: 90%;
+    height: auto;
+    margin: auto;
+  }
+  .photo-contenu {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 90%;
+  }
+  .photo-contenu-infos {
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+  }
+  .photo-infos {
+    width: 90%;
+    border-bottom: solid 1px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-right: 1em;
+  }
+  .photo-infos h2 {
+    font-size: 36px;
+    margin: 0;
+  }
+  .photo-infos p {
+    font-size: 12px;
+    line-height: 1.2;
+  }
+  /* Partie du milieu */
+  .photo-milieu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+    border-bottom: 1px solid black;
+    width: 90%;
+  }
+  .bouton-contact,
+  .fleches {
+    width: 90%;
+  }
+  #texte-bouton {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 1.5em;
+  }
+  .texte-gauche {
+    width: 95%;
+  }
+  .photo-fleches {
+    display: none;
+  }
+  /* Partie du bas */
+  .related-photos-container {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .related-photos-title {
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+  .related-photos-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .related-photo {
+    width: 318px;
+    height: 280px;
+    margin: 10px;
+  }
+  .related-photo-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajuste la taille de l'image pour couvrir le conteneur */
+  }
+}
 /* Lightbox Styles */
 @keyframes lightboxIn {
   from {
@@ -466,13 +558,13 @@ img.icon_fullscreen {
 
 .lightbox__next {
   background: url(assets/images/arrows-next.png) center center/93px 18px no-repeat;
-  right: 10%;
+  right: 8%;
   margin-top: -250px;
 }
 
 .lightbox__prev {
   background: url(assets/images/arrows-prev.png) center center/93px 18px no-repeat;
-  left: 10%;
+  left: 8%;
   margin-top: -250px;
 }
 
@@ -482,8 +574,9 @@ img.icon_fullscreen {
   height: 15px;
   background: url(assets/images/ligthbox-close.png) center center/23px 23px no-repeat;
   position: fixed;
-  top: 80px;
-  right: 10%;
+  top: 30px;
+  right: 40px; /* Ajustement de la position de la croix */
+  z-index: 13; /* Assure que la croix est au-dessus des flèches */
 }
 
 #lightbox button {
@@ -497,20 +590,112 @@ img.icon_fullscreen {
 }
 
 .lightbox__container img {
-  max-width: 100%;
-  height: auto;
+  max-width: calc(100% - 40px); /* Limite la largeur de l'image à 100% de la largeur de la lightbox */
+  max-height: calc(100% - 40px); /* Limite la hauteur de l'image à 100% de la hauteur de la lightbox */
+  object-fit: contain; /* Maintient les proportions de l'image tout en s'assurant qu'elle s'adapte à la lightbox */
   animation: lightboxIn 2s;
 }
 
 .lightbox__container {
+  position: relative; /* Ajoute une position relative pour centrer verticalement */
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 50px;
-  margin-right: 50px;
-  min-height: 100vh;
+  height: 100vh; /* Assure que la lightbox a la hauteur de l'écran */
+  padding: 20px 0; /* Ajoute de l'espace en haut et en bas de la lightbox */
+  box-sizing: border-box; /* Assure que le padding est inclus dans la largeur totale */
+  overflow: hidden; /* Masque tout contenu débordant de la lightbox */
 }
 
+/* Style pour les métadonnées */
+.lightbox__metadata {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  width: calc(100% - 20px); /* Largeur maximale égale à celle de la lightbox moins les marges */
+  justify-content: space-between;
+}
+
+.lightbox__reference {
+  color: white;
+  margin-left: 15%;
+}
+
+.lightbox__category {
+  color: white;
+  margin-right: 15%;
+}
+
+/* CSS pour la version mobile */
+@media (max-width: 767px) {
+  .lightbox__next,
+  .lightbox__prev {
+    width: 60px;
+    height: 30%;
+    position: fixed;
+    top: 50%;
+    z-index: 12;
+  }
+  .lightbox__next {
+    right: 5%;
+    margin-top: -15vh; /* Ajustement pour centrer verticalement les flèches */
+  }
+  .lightbox__prev {
+    left: 5%;
+    margin-top: -15vh; /* Ajustement pour centrer verticalement les flèches */
+  }
+  .lightbox__close {
+    border: none;
+    width: 15px;
+    height: 15px;
+    background: url(assets/images/ligthbox-close.png) center center/23px 23px no-repeat;
+    position: fixed;
+    top: 30px;
+    right: 20px;
+    z-index: 13;
+  }
+  .lightbox__container img {
+    max-width: calc(100% - 20px);
+    max-height: calc(100% - 20px);
+    object-fit: contain;
+    animation: lightboxIn 2s;
+    height: auto; /* Réinitialiser la hauteur */
+    width: auto; /* Réinitialiser la largeur */
+    max-height: 60vh; /* Limiter la hauteur de l'image */
+    margin: auto; /* Centrer horizontalement */
+    margin-top: calc((60vh - 20px - 15px - 15px - 15px) / 2); /* Ajuster pour centrer verticalement */
+  }
+  .lightbox__container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+    padding: 10px 0;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  .lightbox__metadata {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+  }
+  .lightbox__reference,
+  .lightbox__category {
+    color: white;
+    flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
 .hero {
   position: relative;
   display: flex;
@@ -559,10 +744,15 @@ img.icon_fullscreen {
 .load-more-button {
   background-color: #f0f0f0;
   color: #333;
+  width: 272px;
+  height: 50px;
+  font-family: "Space Mono";
+  font-size: 12px;
   padding: 10px 20px;
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease; /* Animation au survol */
+  margin-bottom: 18px;
 }
 
 .load-more-button:hover {

@@ -59,15 +59,15 @@
                 </article>
 
 <!-- *********************************** Zone contact ********************************** -->
-<div class="photo-milieu">
-    <div id="texte-bouton">  
-        <div class="texte-gauche">
-            <p>Cette photo vous intéresse ?</p>
+    <div class="photo-milieu">
+        <div id="texte-bouton">  
+            <div class="texte-gauche">
+                <p>Cette photo vous intéresse ?</p>
+            </div>
+            <div class="bouton-contact">
+                <a href="#contactForm">Contact</a>
+            </div>
         </div>
-        <div class="bouton-contact">
-            <a href="#contactForm">Contact</a>
-        </div>
-    </div>
     
     <div class="photo-fleches">
         <div class="image-container">
