@@ -57,6 +57,10 @@
 }
 
 /* Partie du milieu */
+.bordure_mobile {
+    display: none;
+}
+
 .photo-milieu {
     display: flex;
     align-items: center;
@@ -198,15 +202,15 @@ img.icon_fullscreen {
     }
 
     .image-photo img {
-        max-width: 90%; 
+        max-width: 80%; 
         height: auto; 
         margin: auto;
     }
 
     .photo-contenu {   
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 90%; 
+        margin-left: 0;
+        margin-right: 0;
+        max-width: 100%; 
     }
 
     .photo-contenu-infos {
@@ -216,16 +220,17 @@ img.icon_fullscreen {
     }
 
     .photo-infos {
-        width: 90%; 
-        border-bottom: solid 1px; 
+        width: 80%; 
+        border-bottom: none; 
         margin-top: 1em;
         margin-bottom: 1em; 
-        margin-right: 1em;
+        margin-right: 0;
     }
 
     .photo-infos h2 {
         font-size: 36px; 
         margin: 0; 
+        text-align: left;
     }
 
     .photo-infos p {
@@ -234,25 +239,30 @@ img.icon_fullscreen {
     }
 
     /* Partie du milieu */
+    .bordure_mobile {
+        display: block;
+        border-bottom: 1px solid black; 
+    }
+    
     .photo-milieu {
         display: flex;
         flex-direction: column; 
         align-items: center; 
-        margin: 20px 0; 
-        border-bottom: 1px solid black; 
-        width: 90%;
+        margin: auto; 
+        border-bottom: none; 
+        width: 80%;
     }
 
-    .bouton-contact,
-    .fleches {
-        width: 90%; 
+    .bouton-contact {
+        width: 100%;
+        margin-right: 0; 
      }
 
     #texte-bouton {
         flex-direction: column;
         width: 100%; 
         align-items: center;
-        margin-bottom: 1.5em;
+        margin-bottom: 2em;
     }
 
     .texte-gauche {   
@@ -280,12 +290,13 @@ img.icon_fullscreen {
         display: flex;
         justify-content: center; 
         flex-wrap: wrap;
+        width: 80%;
+        margin: auto;
     }
 
     .related-photo {
-        width: 318px; 
-        height: 280px; 
-        margin: 10px; 
+        width: 35em; 
+        height: 20em;  
     }
 
     .related-photo-thumbnail {

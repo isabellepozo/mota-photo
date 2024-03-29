@@ -57,8 +57,9 @@
                         <?php the_post_thumbnail(); ?>
                     </div>
                 </article>
+            <div class="bordure_mobile"></div>
 
-<!-- *********************************** Zone contact ********************************** -->
+<!-- ********************************* Zone contact ********************************* -->
     <div class="photo-milieu">
         <div id="texte-bouton">  
             <div class="texte-gauche">
@@ -100,8 +101,9 @@
     <?php endwhile; ?>
     <?php endif; ?>
 </div>
-
- <!-- **************************** Zone photos apparentées ****************************** -->
+<div class="bordure_mobile"></div>
+ 
+<!-- **************************** Zone photos apparentées ****************************** -->
 <div class="related-photos-container">
     <p class="related-photos-title">VOUS AIMEREZ AUSSI</p>
     <div class="related-photos-grid">

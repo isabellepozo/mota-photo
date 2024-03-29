@@ -46,3 +46,44 @@ ul.menu {
     width: 216px;
     margin-left: 110px;
 }
+
+/* CSS pour le menu burger */
+.burger-menu {
+    display: none; /* Par défaut, le menu burger est caché */
+}
+
+@media (max-width: 830px) {
+    .nav-header ul {
+        display: none; /* Cacher le menu existant sur les écrans de taille mobile */
+        flex-direction: column; /* Afficher les éléments du menu en colonne */
+        align-items: center; /* Centrer les éléments horizontalement */
+        padding: 0;
+    }
+
+    .burger-menu {
+        display: block; /* Afficher le menu burger sur les écrans de taille mobile */
+        margin-left: auto; /* Pour pousser le menu burger complètement à droite */
+        cursor: pointer;
+    }
+
+    .nav-header {
+        display: flex;
+        justify-content: space-between; /* Pour espacer les éléments horizontalement */
+        align-items: center; /* Pour centrer les éléments verticalement */
+        padding: 30px 20px; /* Ajouter un espace de 20px sur les côtés de la barre de navigation */
+        margin-left: -40px;
+    }
+
+    .nav-header ul li {
+        margin: 10px 0; /* Ajouter un espacement entre les éléments du menu */
+    }
+
+    .burger-menu img {
+        width: 24px; /* Ajuster la largeur de l'icône du menu burger */
+        height: auto; /* Garder le rapport hauteur/largeur de l'icône */
+    }
+}
+
+
+
+
