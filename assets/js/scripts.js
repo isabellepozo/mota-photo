@@ -72,6 +72,33 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+// ************************* Menu burger ************************* //
+document.addEventListener('DOMContentLoaded', function() {
+    const burgerMenu = document.querySelector('.burger-menu');
+    const closeMenu = document.querySelector('.close-menu'); // Sélectionner l'élément de fermeture du menu
+    const navMenu = document.querySelector('.nav-header ul');
+
+    burgerMenu.addEventListener('click', function() {
+        navMenu.classList.toggle('active'); // Ajouter la classe "active" pour afficher le menu
+        burgerMenu.classList.toggle('hidden'); // Ajouter la classe "hidden" pour cacher le menu burger
+        closeMenu.classList.toggle('hidden'); 
+        document.body.classList.toggle('menu-open'); // Ajouter une classe au body pour empêcher le défilement lorsque le menu est ouvert
+    });
+
+    // Ajoutez un écouteur d'événements au bouton de fermeture du menu
+    closeMenu.addEventListener('click', function() {
+        navMenu.classList.remove('active');
+        burgerMenu.classList.remove('hidden'); 
+        closeMenu.classList.remove('hidden'); // Supprimer la classe pour afficher la croix 
+        closeMenu.classList.toggle('hidden'); // Réactiver la classe pour cacher la croix
+        document.body.classList.remove('menu-open'); // Supprimer la classe pour réactiver le défilement
+    });
+});
+
+
+
+
+
 
 
 

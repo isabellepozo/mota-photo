@@ -1,13 +1,6 @@
 <?php
 
-// Déclarer les emplacements des menus
-function motaphoto_register_menus() {
-    register_nav_menus(array(
-        'menu-header' => 'Menu Principal',
-        'menu-footer' => 'Menu Footer',
-    ));
-}
-add_action('init', 'motaphoto_register_menus');
+
 
 // Enregistrer et charger les scripts et les styles
 function theme_enqueue_scripts() {
@@ -79,7 +72,14 @@ function load_more_photos() {
     wp_die();
 }
 
-
+// Déclarer les emplacements des menus
+function motaphoto_register_menus() {
+    register_nav_menus(array(
+        'menu-header' => 'Menu Principal',
+        'menu-footer' => 'Menu Footer',
+    ));
+}
+add_action('init', 'motaphoto_register_menus');
 
 
 

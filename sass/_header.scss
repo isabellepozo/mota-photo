@@ -18,7 +18,7 @@
 }
 
 header .menu-item {
-margin-right: 45px;
+    margin-right: 45px;
 }
 
 .menu a, article a {
@@ -52,12 +52,39 @@ ul.menu {
     display: none; /* Par défaut, le menu burger est caché */
 }
 
+.close-menu.hidden {
+    display: none; /* Par défaut, la croix est cachée */
+}
+
 @media (max-width: 830px) {
     .nav-header ul {
-        display: none; /* Cacher le menu existant sur les écrans de taille mobile */
+        display: none; 
         flex-direction: column; 
         align-items: center; 
         padding: 0;
+        margin: 0;
+        background-color: white;
+        position: fixed; /* Positionner le menu en haut de la page */
+        top: 0; 
+        right: 0; 
+        width: 50%; 
+        height: 100%; 
+        z-index: 9999; 
+        overflow-y: auto; /* Activer le défilement vertical si nécessaire */
+        transform: translateX(100%); /* Déplacer le menu à droite de la page par défaut */
+        animation: lightboxIn 1.5s;
+    }
+
+    /* Ajout de la pseudo-classe pour l'arrière-plan semi-transparent */
+    body.menu-open::before {
+        content: ""; /* Ajouter un contenu vide */
+        position: fixed; /* Positionne la pseudo-classe de superposition */
+        top: 0; 
+        left: 0; 
+        width: 100%; 
+        height: 100%; 
+        background-color: rgba(0, 0, 0, 0.5); /* Couleur de fond semi-transparente */
+        z-index: 9998; 
     }
 
     .burger-menu {
@@ -88,8 +115,37 @@ ul.menu {
         height: auto; 
         margin-right: -4em;
     }
-}
 
+    /* Style du menu burger lorsque la classe "active" est présente */
+    .nav-header ul.active {
+        display: flex; /* Afficher le menu */ 
+        transform: translateX(0); /* Ramener le menu à sa position initiale */
+    }
+
+    /* Empêcher le défilement du contenu lorsque le menu est ouvert */
+    body.menu-open {
+        overflow: hidden;
+    }
+
+    .close-menu {
+        display: block;
+        position: absolute;
+        top: 20px; /* Ajuster la position verticale */
+        right: 20px; /* Ajuster la position horizontale */
+        cursor: pointer;
+        color: #000; 
+        z-index: 99999;
+    }
+
+    .nav-header ul.active + .close-menu {
+        display: block;
+    }
+    
+    .close-menu i {
+        font-size: 24px; /* Taille de la croix */
+    }
+    
+}
 
 
 

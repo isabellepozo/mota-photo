@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <title><?php bloginfo("name") ?> - <?php bloginfo("description") ?></title>
     <?php wp_head(); ?>
 </head>
@@ -9,8 +10,13 @@
 <header class="header">   
     <div class="nav-header">
         <img src="<?php echo esc_url(bloginfo('template_directory') . '/assets/images/logo.svg'); ?>" alt="<?php bloginfo('name'); ?>">
-        <div class="burger-menu"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/menu_burger_icon.png" alt="Menu Burger"></div> <!-- Utilisation de get_template_directory_uri() pour le chemin vers l'icône du menu -->
+        <div class="burger-menu"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/menu_burger_icon.png" alt="Menu Burger"></div>
+        <div class="close-menu hidden"><i class="fas fa-times"></i></div> <!-- Ajout de la balise pour la croix -->
         <?php wp_nav_menu(array( 'theme_location' => 'menu-header' )) ?>
-         <h1><?php bloginfo("name") ?></h1>
+        <h1><?php bloginfo("name") ?></h1>
     </div>
 </header>
+
+
+
+
