@@ -38,9 +38,6 @@ body {
     margin: 0 auto; /* Centre le contenu sur l'écran */
   }
 }
-/* footer, div[class^="menu"] {
-    background-color: #eee;
-}  */
 .menu-item {
   display: inline-block;
 }
@@ -817,7 +814,7 @@ img.icon_fullscreen {
   display: flex;
   justify-content: center; /* Centre le contenu horizontalement */
   align-items: center; /* Centre le contenu verticalement */
-  height: 962px; /* Hauteur de la banner */
+  height: 90vh; /* Utilise 90% de la hauteur de la vue */
   margin-bottom: 50px;
 }
 
@@ -839,11 +836,11 @@ img.icon_fullscreen {
 
 .hero-title {
   margin: 0; /* Supprime les marges par défaut */
+  font-size: 6vw; /* Taille de police du titre en vue (vw) */
   color: white;
-  font-size: 96px;
   font-style: italic;
   color: transparent;
-  -webkit-text-stroke: 3px white;
+  -webkit-text-stroke: 1px white;
 }
 
 .accueil-contenu {
@@ -873,4 +870,49 @@ img.icon_fullscreen {
 
 .load-more-button:hover {
   background-color: #ddd;
+}
+
+/* CSS pour la mise en forme de page.php */
+.page-container {
+  max-width: 1440px;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+.page-content {
+  text-align: left;
+}
+
+.page-content h1 {
+  text-align: center;
+}
+
+.main.single {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.post {
+  width: 70%; /* Ajustez la largeur */
+  margin-bottom: 40px;
+}
+
+.post-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.post-info {
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.post-content {
+  text-align: justify;
+  line-height: 1.6;
+}
+
+.post-comments {
+  margin-top: 40px;
 }/*# sourceMappingURL=style.css.map */

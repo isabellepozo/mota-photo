@@ -1,0 +1,29 @@
+.main.single {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.post {
+    width: 70%; /* Ajustez la largeur */
+    margin-bottom: 40px; 
+}
+
+.post-title {
+    text-align: center; 
+    margin-bottom: 20px; 
+}
+
+.post-info {
+    font-style: italic; 
+    margin-bottom: 10px; 
+}
+
+.post-content {
+    text-align: justify; 
+    line-height: 1.6; 
+}
+
+.post-comments {
+    margin-top: 40px; 
+}

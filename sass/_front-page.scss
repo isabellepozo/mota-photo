@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center; /* Centre le contenu horizontalement */
     align-items: center; /* Centre le contenu verticalement */
-    height: 962px; /* Hauteur de la banner */
+    height: 90vh; /* Utilise 90% de la hauteur de la vue */
     margin-bottom: 50px;
 }
 
@@ -25,12 +25,11 @@
 
 .hero-title {
     margin: 0; /* Supprime les marges par défaut */
-    // font-size: 2rem; /* Taille de police du titre */
+    font-size: 6vw; /* Taille de police du titre en vue (vw) */
     color: white;
-    font-size: 96px;
     font-style: italic;
     color: transparent;
-    -webkit-text-stroke: 3px white;
+    -webkit-text-stroke: 1px white;
 }
 
 .accueil-contenu {
@@ -61,4 +60,3 @@
 .load-more-button:hover {
     background-color: #ddd; 
 }
-
