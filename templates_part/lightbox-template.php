@@ -1,7 +1,8 @@
 <!-- Lightbox-template -->
 <div id="lightbox">
     <!-- Bouton de fermeture de la lightbox -->
-    <button class="lightbox__close"></button>
+    <button class="lightbox__close" </button>
+
 
     <?php
     // Bouton de navigation vers l'image précédente

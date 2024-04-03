@@ -15,6 +15,7 @@
     z-index: 10;
     overflow: auto;
     animation: lightboxIn 2s;
+    transition: opacity 0.5s; /* Ajoute une transition pour le changement d'opacité */
 }
 
 .lightbox__next,
@@ -61,8 +62,8 @@
 }
 
 .lightbox__container img {
-    max-width: calc(100% - 40px); /* Limite la largeur de l'image à 100% de la largeur de la lightbox */
-    max-height: calc(100% - 40px); /* Limite la hauteur de l'image à 100% de la hauteur de la lightbox */
+    max-width: calc(90% - 40px); /* Limite la largeur de l'image à 90% de la largeur de la lightbox */
+    max-height: calc(90% - 40px); /* Limite la hauteur de l'image à 90% de la hauteur de la lightbox */
     object-fit: contain; /* Maintient les proportions de l'image tout en s'assurant qu'elle s'adapte à la lightbox */
     animation: lightboxIn 2s;
 }
@@ -78,47 +79,49 @@
     overflow: hidden; /* Masque tout contenu débordant de la lightbox */
 }
 
-/* Style pour les métadonnées */
 .lightbox__metadata {
+    display: flex;
+    justify-content: space-between;
     position: absolute;
     bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    align-items: center;
-    width: calc(100% - 20px); /* Largeur maximale égale à celle de la lightbox moins les marges */
-    justify-content: space-between;
+    left: 20px;
+    right: 20px;
+    margin-bottom: 2em;
 }
 
-.lightbox__reference {
+.lightbox__reference,
+.lightbox__category {
     color: white;
-    margin-left: 15%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin: 0;
+    margin-left: auto; /* Aligne la référence à droite */
 }
 
 .lightbox__category {
-    color: white;
-    margin-right: 15%;
+    margin-right: auto; /* Aligne la catégorie à gauche */
 }
+
+
 
 /* CSS pour la version mobile */
 @media (max-width: 767px) {
     .lightbox__next,
     .lightbox__prev {
-        width: 60px;
-        height: 30%;
         position: fixed;
-        top: 50%;
         z-index: 12;
+        padding-bottom: 36em;
     }
 
     .lightbox__next {
         right: 5%;
-        margin-top: -15vh; /* Ajustement pour centrer verticalement les flèches */
+        top: calc(50% + 40vh); /* Positionne la flèche à 40% en dessous du centre de l'écran */
     }
 
     .lightbox__prev {
         left: 5%;
-        margin-top: -15vh; /* Ajustement pour centrer verticalement les flèches */
+        top: calc(50% + 40vh); /* Positionne la flèche à 40% en dessous du centre de l'écran */
     }
 
     .lightbox__close {
@@ -132,37 +135,37 @@
         z-index: 13;
     }
 
+    .lightbox__container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh; /* Utilisez 100vh pour occuper toute la hauteur de la vue */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        box-sizing: border-box;
+        overflow: hidden;
+    }  
+
     .lightbox__container img {
-        max-width: calc(100% - 20px);
-        max-height: calc(100% - 20px);
+        max-width: 80vw; /* Limiter la largeur de l'image à 80% de la largeur de la vue */
+        max-height: 80vh; /* Limiter la hauteur de l'image à 80% de la hauteur de la vue */
         object-fit: contain;
         animation: lightboxIn 2s;
         height: auto; /* Réinitialiser la hauteur */
         width: auto; /* Réinitialiser la largeur */
-        max-height: 60vh; /* Limiter la hauteur de l'image */
-        margin: auto; /* Centrer horizontalement */
-        margin-top: calc((60vh - 20px - 15px - 15px - 15px) / 2); /* Ajuster pour centrer verticalement */
-    }
-
-    .lightbox__container {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 60vh;
-        padding: 10px 0;
-        box-sizing: border-box;
-        overflow: hidden;
+        margin-bottom: 5em;
     }
 
     .lightbox__metadata {
         position: absolute;
         bottom: 10px;
-        left: 0;
-        right: 0;
         display: flex;
+        flex-direction: column;
         align-items: center;
-        padding: 0 10px;
+        margin-bottom: 2em;
     }
 
     .lightbox__reference,
@@ -172,5 +175,8 @@
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
+        margin: 0;
     }
 }
+
+

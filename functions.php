@@ -1,7 +1,5 @@
 <?php
 
-
-
 // Enregistrer et charger les scripts et les styles
 function theme_enqueue_scripts() {
     // Enregistrer et charger votre propre version de jQuery
@@ -30,7 +28,7 @@ function theme_enqueue_scripts() {
  
  add_action('wp_enqueue_scripts', 'theme_enqueue_scripts');
 
-// Ajoutez des tailles d'images personnalisées
+// Ajouter des tailles d'images personnalisées
 add_image_size('thumbnail_80x70', 80, 70, true); // Changez les dimensions selon vos besoins
 
 // Fonction pour effectuer une requête AJAX à l'API de WordPress et récupérer les photos supplémentaires
