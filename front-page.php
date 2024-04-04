@@ -15,12 +15,35 @@ get_header(); ?>
             <h1 class="hero-title">PHOTOGRAPHE EVENT</h1>
         </div>
     </section>
-    
+
+    <!-- Ajout des champs de filtre -->
+<section class="filter-section">
+    <div class="filter-category-style">
+        <select id="category-filter" name="category">
+            <option value="all">CATÉGORIE</option>
+            <!-- Les options de catégorie seront ajoutées dynamiquement ici -->
+        </select>
+    </div>
+    <div class="filter-format-style">
+        <select id="format-filter" name="format">
+            <option value="all">FORMAT</option>
+            <!-- Les options de format seront ajoutées dynamiquement ici -->
+        </select>
+    </div>
+    <div class="filter-sort-style">
+        <select id="sort-filter" name="sort">
+            <option value="newest">TRIER PAR</option>
+            <option value="oldest">TRIER PAR</option>
+        </select>
+    </div>
+</section>
+
+
+
+
     <section class="accueil-contenu">
-    <div class="related-photos-grid">
-
-
-    <?php
+        <div class="related-photos-grid">
+            <?php
             // Définir les arguments de la requête pour obtenir des photos aléatoires
             $args = array(
                 'post_type' => 'photos',
@@ -36,36 +59,33 @@ get_header(); ?>
                 // Boucle sur chaque photo
                 while ($photos_query->have_posts()) {
                     $photos_query->the_post();
-        ?>
-        <div class="related-photo">
-            <!-- Lien vers la page de la photo -->
-            <a href="<?php the_permalink(); ?>" class="related-photo-link">
-                <?php
+            ?>
+            <div class="related-photo">
+                <!-- Lien vers la page de la photo -->
+                <a href="<?php the_permalink(); ?>" class="related-photo-link">
+                    <?php
                     // Récupérer l'URL de l'image en taille réelle
                     $full_image_url = wp_get_attachment_image_src(get_post_thumbnail_id(), 'full');
                     // Afficher l'image
                     echo '<img src="' . esc_url($full_image_url[0]) . '" class="related-photo-thumbnail" alt="' . get_the_title() . '">';
-                ?>
-            </a>
-            <div class="related-photo-overlay">
-                <!-- Lien vers les infos détaillées de la photo -->
-                <a href="<?php the_permalink(); ?>" class="related-photo-info"><img src="<?php echo esc_url(bloginfo('template_directory') . '/assets/images/icon_eye.png'); ?>" class="icon_eye" alt="Icon en forme d'oeil"></a>
-                <!-- Lien pour ouvrir la photo dans une lightbox -->
-                <a href="#" class="open-lightbox related-photo-lightbox" data-image-url="<?php echo esc_url(wp_get_attachment_url(get_post_thumbnail_id())); ?>"><img src="<?php echo esc_url(bloginfo('template_directory') . '/assets/images/icon_fullscreen.png'); ?>" class="icon_fullscreen" alt="Icon plein écran"></a>
+                    ?>
+                </a>
+                <div class="related-photo-overlay">
+                    <!-- Lien vers les infos détaillées de la photo -->
+                    <a href="<?php the_permalink(); ?>" class="related-photo-info"><img src="<?php echo esc_url(bloginfo('template_directory') . '/assets/images/icon_eye.png'); ?>" class="icon_eye" alt="Icon en forme d'oeil"></a>
+                    <!-- Lien pour ouvrir la photo dans une lightbox -->
+                    <a href="#" class="open-lightbox related-photo-lightbox" data-image-url="<?php echo esc_url(wp_get_attachment_url(get_post_thumbnail_id())); ?>"><img src="<?php echo esc_url(bloginfo('template_directory') . '/assets/images/icon_fullscreen.png'); ?>" class="icon_fullscreen" alt="Icon plein écran"></a>
+                </div>
             </div>
-        </div>
-        <?php
+            <?php
                 }
                 wp_reset_postdata(); // Réinitialise les données des requêtes WordPress
             }
-    ?>
-
-
+            ?>
         </div>
         <div class="load-more-container">
             <button class="load-more-button">Charger plus</button>
         </div>
-
     </section>
 
     </main><!-- #primary -->
