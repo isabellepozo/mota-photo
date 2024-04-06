@@ -10,24 +10,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let currentIndex = 0; // Index de l'image actuellement affichée
 
-    // Précharger les URLs des images
-    const imageUrls = [];
-    const openLightboxButtons = document.querySelectorAll('.open-lightbox');
-    openLightboxButtons.forEach(function (button, index) {
-        const imageUrl = button.getAttribute('data-image-url');
-        imageUrls.push(imageUrl);
-        // Ajouter un écouteur d'événement pour ouvrir la lightbox avec l'image correspondante
-        button.addEventListener('click', function (event) {
-            event.preventDefault();
-            displayImage(index);
-            // Afficher la lightbox
-            lightbox.style.display = 'block';
-        });
-    });
-
-    // Afficher la première image lorsque la lightbox est ouverte
-    displayImage(0);
-
     // Fonction pour afficher une image dans la lightbox
     function displayImage(index) {
         const imageUrl = imageUrls[index];
@@ -51,6 +33,29 @@ document.addEventListener("DOMContentLoaded", function () {
         currentIndex = index;
     }
 
+    // Ajouter un écouteur d'événement pour ouvrir la lightbox avec l'image correspondante
+    function openLightbox(index) {
+        displayImage(index);
+        // Afficher la lightbox
+        lightbox.style.display = 'block';
+    }
+
+    // Précharger les URLs des images et ajouter les écouteurs d'événement pour ouvrir la lightbox
+    const imageUrls = [];
+    const openLightboxButtons = document.querySelectorAll('.open-lightbox');
+    openLightboxButtons.forEach(function (button, index) {
+        const imageUrl = button.getAttribute('data-image-url');
+        imageUrls.push(imageUrl);
+        // Ajouter un écouteur d'événement pour ouvrir la lightbox avec l'image correspondante
+        button.addEventListener('click', function (event) {
+            event.preventDefault();
+            openLightbox(index);
+        });
+    });
+
+    // Afficher la première image lorsque la lightbox est ouverte
+    displayImage(0);
+
     closeButton.addEventListener('click', function () {
         // Cacher la lightbox
         lightbox.style.display = 'none';
@@ -68,7 +73,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
-
 
 
 

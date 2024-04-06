@@ -28,8 +28,10 @@ function theme_enqueue_scripts() {
  
  add_action('wp_enqueue_scripts', 'theme_enqueue_scripts');
 
-// Ajouter des tailles d'images personnalisées
+
+ // Ajouter des tailles d'images personnalisées
 add_image_size('thumbnail_80x70', 80, 70, true); // Changez les dimensions selon vos besoins
+
 
 // Fonction pour effectuer une requête AJAX à l'API de WordPress et récupérer les photos supplémentaires
 add_action('wp_ajax_load_more_photos', 'load_more_photos');
