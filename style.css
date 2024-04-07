@@ -79,50 +79,53 @@ article img:hover {
 
 /**************** HEADER ***************/
 .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   background-color: #ffffff;
   margin-top: 0;
   height: 80px;
   box-shadow: 0px 4px 14px 10px rgba(0, 0, 0, 0.03);
   max-width: 1440px;
+  padding: 0 20px;
 }
 
 .nav-header {
   display: flex;
   justify-content: space-between;
-  padding-top: 10px;
+  align-items: center;
+  width: 100%;
 }
 
 .nav-header h1 {
   display: none;
 }
 
-header .menu-item {
+.header .menu-item {
   margin-right: 45px;
 }
 
-.menu a, article a {
+.menu a,
+article a {
   text-decoration: none;
   color: #333;
 }
 
-.menu a:hover, article a:hover {
+.menu a:hover,
+article a:hover {
   color: #313144;
 }
 
 ul.menu {
   display: flex;
+  margin-right: 2em;
   justify-content: center;
-  padding-right: 22px;
   list-style-type: none;
-}
-
-.menu-menu-principal-container {
-  margin-right: 70px;
 }
 
 .nav-header img {
   width: 216px;
-  margin-left: 110px;
+  margin-left: 4em;
 }
 
 /* CSS pour le menu burger */
@@ -134,7 +137,7 @@ ul.menu {
   display: none; /* Par défaut, la croix est cachée */
 }
 
-@media (max-width: 830px) {
+@media (max-width: 767px) {
   .nav-header ul {
     display: none;
     flex-direction: column;
@@ -164,20 +167,20 @@ ul.menu {
     z-index: 9998;
   }
   .burger-menu {
-    display: block;
-    margin-left: auto;
+    display: flex; /* Afficher le menu burger */
+    margin-left: auto; /* Positionner le menu burger à droite */
     cursor: pointer;
   }
   .nav-header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Permet d'espacer les éléments */
     align-items: center;
-    padding: 22px 20px;
-    margin-left: -40px;
+    padding: 0 20px;
+    margin-right: 0; /* Empêche le débordement du header à droite */
   }
   .nav-header img {
     width: 10em;
-    margin-left: 3em;
+    margin-left: 1em;
   }
   .nav-header ul li {
     margin: 10px 0;
@@ -185,7 +188,7 @@ ul.menu {
   .burger-menu img {
     width: 2em;
     height: auto;
-    margin-right: -4em;
+    margin-right: 1em;
   }
   /* Style du menu burger lorsque la classe "active" est présente */
   .nav-header ul.active {
