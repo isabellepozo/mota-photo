@@ -1,23 +1,43 @@
 // ********** Gestion de la modale ********** //
-let contactModal = document.querySelector("#contact-modal")
-let menuItem = document.querySelector("#menu-item-49 a")
-let contactButton = document.querySelector(".bouton-contact a");
+let contactModal = document.querySelector("#contact-modal");
+let contactButtonSingle = document.querySelector(".bouton-contact a"); // Bouton contact sur la page de détail des photos
+let contactButtonMenu = document.querySelector("#menu-item-49 a"); // Lien contact dans le menu
 
-menuItem.addEventListener("click", function () {
-    contactModal.style.display = "block"
-})
+// Vérifie si l'élément #contact-modal existe dans le DOM
+if (contactModal) {
+    // Fonction pour ouvrir la modale
+    function openModal() {
+        contactModal.style.display = "block";
+    }
 
-// contactButton.addEventListener("click", function (event) {
-//     event.preventDefault(); // Empêche le comportement par défaut du lien
-//     contactModal.style.display = "block";
-// });
-
-window.onclick = function (event) {
-    if (event.target == contactModal) {
+    // Fonction pour fermer la modale
+    function closeModal() {
         contactModal.style.display = "none";
     }
-}
 
+    // Gestion de l'ouverture de la modale depuis le bouton contact sur la page de détail des photos
+    if (contactButtonSingle) {
+        contactButtonSingle.addEventListener("click", function (event) {
+            event.preventDefault(); // Empêche le comportement par défaut du lien
+            openModal();
+        });
+    }
+
+    // Gestion de l'ouverture de la modale depuis le lien contact dans le menu
+    if (contactButtonMenu) {
+        contactButtonMenu.addEventListener("click", function (event) {
+            event.preventDefault(); // Empêche le comportement par défaut du lien
+            openModal();
+        });
+    }
+
+    // Gestion de la fermeture de la modale
+    window.onclick = function (event) {
+        if (event.target == contactModal) {
+            closeModal();
+        }
+    };
+}
 
 // ********** Gestion du Hover flèches single-photos.php ********** //
 document.addEventListener('DOMContentLoaded', function () {
