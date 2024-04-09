@@ -1,4 +1,3 @@
-//   lightbox.js
 document.addEventListener("DOMContentLoaded", function () {
     const lightbox = document.getElementById('lightbox');
     const closeButton = lightbox.querySelector('.lightbox__close');
@@ -8,72 +7,77 @@ document.addEventListener("DOMContentLoaded", function () {
     const referenceElement = lightbox.querySelector('.lightbox__reference');
     const categoryElement = lightbox.querySelector('.lightbox__category');
 
-    let currentIndex = 0; // Index de l'image actuellement affichée
+    // Sélecteur pour le conteneur global des photos
+    const photosContainer = document.querySelector('.related-photos-grid');
 
-    // Fonction pour afficher une image dans la lightbox
+    let currentIndex = 0;
+
     function displayImage(index) {
-        const imageUrl = imageUrls[index];
-        imageContainer.src = imageUrl;
-
-        // Récupérer les métadonnées de l'image
-        const imageDataItem = imageData[index];
-
-        // Mettre à jour les métadonnées de l'image
-        referenceElement.textContent = "Référence : " + imageDataItem.reference;
-
-        let categories = "";
-        if (imageDataItem.categories) {
-            imageDataItem.categories.forEach(function(category) {
-                categories += category.name + ", ";
-            });
-            categories = categories.slice(0, -2); // Retire la dernière virgule et l'espace
+        if (index >= 0 && index < imageData.length) {
+            const imageUrl = imageData[index].url;
+            imageContainer.src = imageUrl;
+            currentIndex = index;
+    
+            const reference = imageData[index].reference || 'N/A';
+            const categories = imageData[index].categories.map(c => c.name).join(', ') || 'N/A';
+    
+            referenceElement.textContent = `Référence : ${reference}`;
+            categoryElement.textContent = `Catégorie : ${categories}`;
         }
-        categoryElement.textContent = "Catégorie : " + categories;
-
-        currentIndex = index;
     }
 
-    // Ajouter un écouteur d'événement pour ouvrir la lightbox avec l'image correspondante
     function openLightbox(index) {
         displayImage(index);
-        // Afficher la lightbox
         lightbox.style.display = 'block';
     }
 
-    // Précharger les URLs des images et ajouter les écouteurs d'événement pour ouvrir la lightbox
-    const imageUrls = [];
-    const openLightboxButtons = document.querySelectorAll('.open-lightbox');
-    openLightboxButtons.forEach(function (button, index) {
-        const imageUrl = button.getAttribute('data-image-url');
-        imageUrls.push(imageUrl);
-        // Ajouter un écouteur d'événement pour ouvrir la lightbox avec l'image correspondante
-        button.addEventListener('click', function (event) {
-            event.preventDefault();
-            openLightbox(index);
-        });
+    photosContainer.addEventListener('click', function (event) {
+        let target = event.target;
+        while (target != photosContainer) {
+            if (target.matches('.open-lightbox')) {
+                event.preventDefault();
+                const index = Array.from(photosContainer.querySelectorAll('.open-lightbox')).indexOf(target);
+                openLightbox(index);
+                return;
+            }
+            target = target.parentNode;
+        }
     });
 
-    // Afficher la première image lorsque la lightbox est ouverte
-    displayImage(0);
-
     closeButton.addEventListener('click', function () {
-        // Cacher la lightbox
         lightbox.style.display = 'none';
     });
 
-    // Ajouter la logique de navigation avec les flèches
-    nextButton.addEventListener('click', function () {
-        currentIndex = (currentIndex + 1) % imageUrls.length;
-        displayImage(currentIndex);
+    // Lorsque le bouton précédent est cliqué
+    document.querySelector('.lightbox__prev').addEventListener('click', function() {
+        displayImage((currentIndex - 1 + imageData.length) % imageData.length);
     });
 
-    prevButton.addEventListener('click', function () {
-        currentIndex = (currentIndex - 1 + imageUrls.length) % imageUrls.length;
-        displayImage(currentIndex);
+    // Lorsque le bouton suivant est cliqué
+    document.querySelector('.lightbox__next').addEventListener('click', function() {
+        displayImage((currentIndex + 1) % imageData.length);
     });
 
+    function initializeImages() {
+        imageUrls.length = 0;
+    
+        const lightboxButtons = document.querySelectorAll('.related-photo .open-lightbox');
+        console.log('Nombre de boutons trouvés:', lightboxButtons.length); // Pour le débogage
+    
+        lightboxButtons.forEach(function (button, index) {
+            console.log('Bouton:', button); // Vérifier l'élément bouton
+            const imageUrl = button.getAttribute('data-image-url');
+            console.log(`ImageUrl pour l'index ${index}:`, imageUrl); // Pour le débogage
+            if (imageUrl) {
+                imageUrls.push(imageUrl);
+            } else {
+                console.error('Attribut data-image-url manquant ou incorrect pour le bouton à l\'index', index);
+            }
+        });
+    }
+
+    initializeImages();
 });
-
 
 
 

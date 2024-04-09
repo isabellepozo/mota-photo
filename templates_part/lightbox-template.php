@@ -3,33 +3,9 @@
     <!-- Bouton de fermeture de la lightbox -->
     <button class="lightbox__close"></button>
 
-
-    <?php
-    // Bouton de navigation vers l'image précédente
-    $previous_post = get_previous_post();
-    if ($previous_post) {
-        $previous_post_link = get_permalink($previous_post);
-        $previous_image_id = get_post_thumbnail_id($previous_post->ID);
-        $previous_image_url = wp_get_attachment_image_src($previous_image_id, 'full')[0];
-        echo '<button class="lightbox__prev" data-image-url="' . $previous_image_url . '"></button>';
-    }
-    ?>
-
-<?php
-    // Bouton de navigation vers l'image suivante
-    $next_post = get_next_post();
-    if ($next_post) {
-        $next_post_link = get_permalink($next_post);
-        $next_image_id = get_post_thumbnail_id($next_post->ID);
-        $next_image_url = wp_get_attachment_image_src($next_image_id, 'full');
-        if ($next_image_url) {
-            $next_image_url = $next_image_url[0];
-        }
-        
-        echo '<button class="lightbox__next" data-image-url="' . $next_image_url . '"></button>';
-    }
-    ?>
-
+    <!-- Boutons de navigation -->
+    <button class="lightbox__prev">Précédent</button>
+    <button class="lightbox__next">Suivant</button>
 
     <!-- Conteneur de l'image -->
     <div class="lightbox__container">

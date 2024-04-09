@@ -1,4 +1,4 @@
-// ********** Gestion de la modale ********** //
+// ********************** Gestion de la modale ********************* //
 let contactModal = document.querySelector("#contact-modal");
 let contactButtonSingle = document.querySelector(".bouton-contact a"); // Bouton contact sur la page de détail des photos
 let contactButtonMenu = document.querySelector("#menu-item-49 a"); // Lien contact dans le menu
@@ -114,6 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.classList.remove('menu-open'); // Supprimer la classe pour réactiver le défilement
     });
 });
+
 
 
 

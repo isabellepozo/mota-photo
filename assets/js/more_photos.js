@@ -25,23 +25,41 @@ jQuery(document).ready(function($) {
             },
             success: function(response) {
                 if (response.length > 0) {
-                    // Boucle sur chaque nouvelle photo dans la réponse
-                    $.each(response, function(index, photo) {
-                        // Créer un élément pour chaque nouvelle photo
-                        var newPhoto = '<div class="related-photo" data-photo-id="' + photo.id + '"><a href="' + photo.permalink + '" class="related-photo-link"><img src="' + photo.image + '" class="related-photo-thumbnail" alt="' + photo.title + '"></a><div class="related-photo-overlay"><a href="' + photo.permalink + '" class="related-photo-info"><img src="' + photo.icon_eye + '" class="icon_eye" alt="Icon en forme d\'oeil"></a><a href="#" class="open-lightbox related-photo-lightbox" data-image-url="' + photo.image + '"><img src="' + photo.icon_fullscreen + '" class="icon_fullscreen" alt="Icon plein écran"></a></div></div>';
-                        // Ajouter la nouvelle photo à la grille
-                        $('.related-photos-grid').append(newPhoto);
-                        // Ajouter l'ID de la nouvelle photo à la liste des photos chargées
+                    response.forEach(function(photo) {
+                        var newPhotoHtml = `<div class="related-photo" data-photo-id="${photo.id}">
+                            <a href="${photo.permalink}" class="related-photo-link">
+                                <img src="${photo.image}" class="related-photo-thumbnail" alt="${photo.title}">
+                            </a>
+                            <div class="related-photo-overlay">
+                                <a href="${photo.permalink}" class="related-photo-info">
+                                    <img src="/wp-content/themes/mota-photo/assets/images/icon_eye.png" class="icon_eye" alt="Icon en forme d'oeil">
+                                </a>
+                                <a href="#" class="open-lightbox related-photo-lightbox" data-image-url="${photo.image}" data-reference="${photo.reference}" data-category="${photo.category}">
+                                    <img src="/wp-content/themes/mota-photo/assets/images/icon_fullscreen.png" class="icon_fullscreen" alt="Icon plein écran">
+                                </a>
+                            </div>
+                        </div>`;
+
+                        $('.related-photos-grid').append(newPhotoHtml);
+                        
+                        // Assurez-vous que imageData est défini globalement avant cet endroit dans votre script global.
+                        imageData.push({
+                            url: photo.image,
+                            reference: photo.reference,
+                            categories: [{name: photo.category}]
+                        });
+
                         loadedPhotoIds.push(photo.id);
                     });
 
-                    // Incrémenter l'offset pour la prochaine requête
-                    offset += 8;
+                    offset += response.length;
                 } else {
-                    // Masquer le bouton s'il n'y a plus de photos à charger
                     $('.load-more-container').hide();
                 }
             },
+            error: function(xhr, status, error) {
+                console.error("Erreur lors du chargement des photos :", error);
+            }
         });
     });
 });
