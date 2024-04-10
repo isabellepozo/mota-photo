@@ -140,21 +140,25 @@
                             <a href="<?php the_permalink(); ?>" class="related-photo-link">
                             <?php
                                 $full_image_url = wp_get_attachment_image_src(get_post_thumbnail_id(), 'full');
-                                echo '<img src="' . esc_url($full_image_url[0]) . '" class="related-photo-thumbnail" alt="' . get_the_title() . '">';
+                                $reference = get_field('reference');
+                                $categories = get_the_terms(get_the_ID(), 'categorie');
+                                $categorie_name = $categories ? reset($categories)->name : 'Non défini';
+                                echo '<img src="' . esc_url($full_image_url[0]) . '" class="related-photo-thumbnail" alt="' . get_the_title() . '" data-reference="' . esc_attr($reference) . '" data-category="' . esc_attr($categorie_name) . '">';
                             ?>
-
                             </a>
                             <div class="related-photo-overlay">
                                 <!-- Lien vers les infos détaillées de la photo -->
                                 <a href="<?php the_permalink(); ?>" class="related-photo-info"><img src="<?php echo esc_url(bloginfo('template_directory') . '/assets/images/icon_eye.png'); ?>" class="icon_eye" alt="Icon en forme d'oeil"></a>
-                                
-                                <!-- Lien pour ouvrir la photo dans une lightbox -->
-                                <a href="#" class="open-lightbox related-photo-lightbox" data-image-url="<?php echo esc_url(wp_get_attachment_url(get_post_thumbnail_id())); ?>"><img src="<?php echo esc_url(bloginfo('template_directory') . '/assets/images/icon_fullscreen.png'); ?>" class="icon_fullscreen" alt="Icon plein écran"></a>
+                                <!-- Lien pour ouvrir la photo dans une lightbox avec les métadonnées -->
+                                <a href="#" class="open-lightbox related-photo-lightbox" 
+                                data-image-url="<?php echo esc_url(wp_get_attachment_url(get_post_thumbnail_id())); ?>" 
+                                data-reference="<?php echo esc_attr(get_post_meta(get_the_ID(), 'reference', true)); ?>" 
+                                data-category="<?php echo esc_attr(implode(', ', wp_list_pluck(get_the_terms(get_the_ID(), 'categorie'), 'name'))); ?>">
+                                <img src="<?php echo esc_url(bloginfo('template_directory') . '/assets/images/icon_fullscreen.png'); ?>" class="icon_fullscreen" alt="Icon plein écran">
+                                </a>
+
                             </div>
-
-
                         </div>
-                                                
                         <?php
                     }
                     wp_reset_postdata(); // Réinitialise les données des requêtes WordPress
@@ -164,8 +168,8 @@
     </div>
 </div>
 
-
 <?php get_footer(); ?>
+
 
 
 

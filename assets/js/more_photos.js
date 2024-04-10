@@ -32,10 +32,10 @@ jQuery(document).ready(function($) {
                             </a>
                             <div class="related-photo-overlay">
                                 <a href="${photo.permalink}" class="related-photo-info">
-                                    <img src="/wp-content/themes/mota-photo/assets/images/icon_eye.png" class="icon_eye" alt="Icon en forme d'oeil">
+                                    <img src="/motaphoto/wp-content/themes/mota-photo/assets/images/icon_eye.png" class="icon_eye" alt="Icon en forme d'oeil">
                                 </a>
                                 <a href="#" class="open-lightbox related-photo-lightbox" data-image-url="${photo.image}" data-reference="${photo.reference}" data-category="${photo.category}">
-                                    <img src="/wp-content/themes/mota-photo/assets/images/icon_fullscreen.png" class="icon_fullscreen" alt="Icon plein écran">
+                                    <img src="/motaphoto/wp-content/themes/mota-photo/assets/images/icon_fullscreen.png" class="icon_fullscreen" alt="Icon plein écran">
                                 </a>
                             </div>
                         </div>`;
