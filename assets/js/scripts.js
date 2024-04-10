@@ -3,7 +3,7 @@ let contactModal = document.querySelector("#contact-modal");
 let contactButtonSingle = document.querySelector(".bouton-contact a"); // Bouton contact sur la page de détail des photos
 let contactButtonMenu = document.querySelector("#menu-item-49 a"); // Lien contact dans le menu
 
-// Vérifie si l'élément #contact-modal existe dans le DOM
+// Vérifier si l'élément #contact-modal existe dans le DOM
 if (contactModal) {
     // Fonction pour ouvrir la modale
     function openModal() {
@@ -38,6 +38,7 @@ if (contactModal) {
         }
     };
 }
+
 
 // ********** Gestion du Hover flèches single-photos.php ********** //
 document.addEventListener('DOMContentLoaded', function () {
@@ -91,6 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
+
 
 // ************************* Menu burger ************************* //
 document.addEventListener('DOMContentLoaded', function() {

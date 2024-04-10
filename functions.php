@@ -92,8 +92,6 @@ function load_more_photos() {
 }
 
 
-
-
 /************** Fonction requête AJAX à l'API de WordPress pour filtrer les photos *********/
 // Fonction pour filtrer les photos par catégorie
 add_action('wp_ajax_filter_photos_by_category', 'filter_photos_by_category');
@@ -275,59 +273,3 @@ function filter_photos_by_year() {
     wp_die();
 }
 
-
-/* Fonction pour gérer la requête AJAX pour récupérer les données des deux photos apparentes */
-function get_related_photos_data() {
-    // Vérifier si la requête AJAX est correcte et sécurisée avec un jeton nonce
-    if (isset($_POST['post_id']) && wp_verify_nonce($_POST['nonce'], 'get_related_photos_data_nonce')) {
-        // Récupérer l'ID du post envoyé via la requête AJAX
-        $post_id = $_POST['post_id'];
-
-        // Définir les arguments de la requête pour obtenir les données des photos apparentes
-        $args = array(
-            'post_type' => 'photos',
-            'posts_per_page' => 2,
-            'orderby' => 'rand',
-            'post__not_in' => array($post_id), // Exclure la photo courante
-        );
-
-        // Exécuter la requête pour obtenir les photos apparentes
-        $related_photos_query = new WP_Query($args);
-
-        // Tableau pour stocker les données des photos apparentes
-        $related_photos_data = array();
-
-        // Vérifier si la requête a renvoyé des résultats
-        if ($related_photos_query->have_posts()) {
-            // Parcourir les résultats de la requête
-            while ($related_photos_query->have_posts()) {
-                $related_photos_query->the_post();
-                // Récupérer les données de chaque photo
-                $related_photo = array(
-                    'title' => get_the_title(),
-                    'image_url' => get_the_post_thumbnail_url(),
-                    'categorie' => get_the_category()[0]->name, // Utilisation du nom de la catégorie "categorie"
-                    'reference' => get_post_meta(get_the_ID(), 'reference', true), // Récupérer la référence de la photo
-                    // Vous pouvez ajouter d'autres données si nécessaire
-                );
-                // Ajouter les données de la photo au tableau
-                $related_photos_data[] = $related_photo;
-            }
-            // Réinitialiser les données des requêtes WordPress
-            wp_reset_postdata();
-        }
-
-        // Enregistrer les données des photos apparentes dans le fichier de log de WordPress pour débogage
-        error_log('Related photos data: ' . print_r($related_photos_data, true));
-
-        // Renvoyer les données des photos apparentes au format JSON
-        wp_send_json($related_photos_data);
-    } else {
-        // Si la requête n'est pas valide, renvoyer une réponse d'erreur
-        wp_send_json_error('Invalid AJAX request');
-    }
-}
-
-// Action pour gérer la requête AJAX pour récupérer les données des photos apparentes
-add_action('wp_ajax_get_related_photos_data', 'get_related_photos_data');
-add_action('wp_ajax_nopriv_get_related_photos_data', 'get_related_photos_data'); // Permet la prise en charge des utilisateurs non connectés

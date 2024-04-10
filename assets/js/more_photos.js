@@ -42,7 +42,7 @@ jQuery(document).ready(function($) {
 
                         $('.related-photos-grid').append(newPhotoHtml);
                         
-                        // Assurez-vous que imageData est défini globalement avant cet endroit dans votre script global.
+                        // S'assurer que imageData est défini globalement avant cet endroit dans votre script global.
                         imageData.push({
                             url: photo.image,
                             reference: photo.reference,
