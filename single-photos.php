@@ -65,10 +65,11 @@
             <div class="texte-gauche">
                 <p>Cette photo vous intéresse ?</p>
             </div>
-            <div class="bouton-contact">
-                <a href="#contactForm">Contact</a>
-            </div>
+        <div class="bouton-contact">
+            <button type="button" data-reference="<?php echo $reference; ?>">Contact</button>
         </div>
+    </div>
+
     
     <div class="photo-fleches">
         <div class="image-container">

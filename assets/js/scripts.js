@@ -118,6 +118,27 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+// ************************* Préremplir champ réf. bouton contact ************************* //
+jQuery(document).ready(function($) {
+    // Sélectionnez le bouton de contact
+    $('.bouton-contact button').click(function() {
+        // Récupérez la référence de l'attribut data
+        var reference = $(this).data('reference');
+        
+        // Sélectionnez le champ référence dans le formulaire de contact et préremplissez-le
+        var champReference = $('.wpcf7-form-control-wrap[data-name="your-subject"]');
+        
+        // Préremplissez le champ référence avec la référence récupérée
+        champReference.find('input').val(reference);
+        
+        // Ouvrez la modale de contact
+        $('#contact-modal').fadeIn();
+    });
+});
+
+
+
+
 
 
 

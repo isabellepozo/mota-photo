@@ -427,12 +427,21 @@ form.wpcf7-form.init input[type=submit]:hover {
   text-align: center;
 }
 
-.bouton-contact a {
-  display: block;
+.bouton-contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10%;
   padding: 10px;
   background-color: #d8d8d8;
+}
+
+button {
+  border: none;
+  background-color: #d8d8d8;
+  font-family: "Poppins";
+  font-size: 12px;
   color: black;
-  text-decoration: none;
 }
 
 .fleches {
@@ -467,10 +476,6 @@ form.wpcf7-form.init input[type=submit]:hover {
 .texte-gauche {
   width: 70%;
   text-align: left;
-}
-
-.bouton-contact {
-  margin-right: 7%;
 }
 
 .image-container {
