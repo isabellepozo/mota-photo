@@ -442,6 +442,7 @@ button {
   font-family: "Poppins";
   font-size: 12px;
   color: black;
+  cursor: pointer;
 }
 
 .fleches {

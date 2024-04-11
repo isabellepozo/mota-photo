@@ -3,7 +3,7 @@
 /**************** Enregistrer et charger les scripts et les styles ********************/
 function theme_enqueue_scripts() {
     // Enregistrer et charger votre propre version de jQuery
-    // wp_enqueue_script('jquery', get_template_directory_uri() . '/assets/js/jquery-3.7.1.min.js', array(), null, true);
+    wp_enqueue_script('jquery', get_template_directory_uri() . '/assets/js/jquery-3.7.1.min.js', array(), null, true);
     
     // Charger la feuille de style
     wp_enqueue_style('style', get_stylesheet_uri());
@@ -32,6 +32,9 @@ function theme_enqueue_scripts() {
 
     // Passer l'URL de l'endpoint AJAX à JavaScript pour filters.js
     wp_localize_script('filters', 'ajax_object', array('ajaxurl' => admin_url('admin-ajax.php')));
+
+    // Passer l'URL de l'endpoint AJAX à JavaScript pour lightbox.js
+    wp_localize_script('lightbox', 'ajax_object', array('ajaxurl' => admin_url('admin-ajax.php')));
 
   }
  
@@ -151,6 +154,7 @@ function filter_photos_by_category() {
     // Terminer le processus WordPress
     wp_die();
 }
+
 
 // Fonction pour filtrer les photos par format
 add_action('wp_ajax_filter_photos_by_format', 'filter_photos_by_format');
